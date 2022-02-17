@@ -7,12 +7,47 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
+
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
   
     return transactionContract;
+    
+  
+}
+
+
+
+    useEffect(()=>{
+        checkIfWalletIsConnected();
+        window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+
+        setCurrentAccount(accounts[0]);
+    })
+
+    }, []);
+
+    const checkWallet = async ()=>{
+        try{
+            const permissions = await ethereum.request({
+                method: 'wallet_requestPermissions',
+                params: [{
+                eth_accounts: {},
+                }]
+                }); 
+
+            setCurrentAccount(permissions[0])
+        } catch (error){
+            setCurrentAccount(null)
+        }
+
+    }
+
+
+   
 }
 
 export const TransactionProvider = ({ children }) => {
@@ -102,13 +137,12 @@ export const TransactionProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        checkIfWalletIsConnected();
-    }, []);
+
 
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction }}>
+        <TransactionContext.Provider value={{ connectWallet, currentAccount,setCurrentAccount,checkWallet, formData, setFormData, handleChange, sendTransaction }}>
+
             { children }
         </TransactionContext.Provider>
     );
