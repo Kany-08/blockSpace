@@ -16,30 +16,8 @@ const getEthereumContract = () => {
     return transactionContract;
     
   
-}
+}   
 
-
-
-   
-
-    const checkWallet = async ()=>{
-        try{
-            const permissions = await ethereum.request({
-                method: 'wallet_requestPermissions',
-                params: [{
-                eth_accounts: {},
-                }]
-                }); 
-
-            setCurrentAccount(permissions[0])
-        } catch (error){
-            setCurrentAccount(null)
-        }
-
-    }
-
-
-   
 
 
 export const TransactionProvider = ({ children }) => {
@@ -89,6 +67,22 @@ export const TransactionProvider = ({ children }) => {
 
           throw new Error("No ethereum object.")
         }
+    }
+
+    const checkWallet = async ()=>{
+        try{
+            const permissions = await ethereum.request({
+                method: 'wallet_requestPermissions',
+                params: [{
+                eth_accounts: {},
+                }]
+                }); 
+
+            setCurrentAccount(permissions[0])
+        } catch (error){
+            setCurrentAccount(null)
+        }
+
     }
 
     const sendTransaction = async () => {
