@@ -4,7 +4,7 @@ import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
 import { TransactionContext } from '../context/TransactionContext';
-import React, { useContext } from 'react'; 
+ 
 
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white"
@@ -22,7 +22,7 @@ const Input = ({placeholder, name, type, value, handleChange }) =>(
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, checkWallet } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
@@ -53,7 +53,7 @@ const Welcome = () => {
 
                     >
                         <p className='text-white text-base font-semibold'>{currentAccount? "disconnect" : "connect wallet"}</p> 
-                    </button>
+                    </button> ) }
 
                 
 

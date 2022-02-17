@@ -20,15 +20,7 @@ const getEthereumContract = () => {
 
 
 
-    useEffect(()=>{
-        checkIfWalletIsConnected();
-        window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-
-        setCurrentAccount(accounts[0]);
-    })
-
-    }, []);
+   
 
     const checkWallet = async ()=>{
         try{
@@ -48,7 +40,7 @@ const getEthereumContract = () => {
 
 
    
-}
+
 
 export const TransactionProvider = ({ children }) => {
 
@@ -136,7 +128,15 @@ export const TransactionProvider = ({ children }) => {
             
         }
     }
+    useEffect(()=>{
+        checkIfWalletIsConnected();
+        window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 
+        setCurrentAccount(accounts[0]);
+    })
+
+    }, []);
 
 
 
