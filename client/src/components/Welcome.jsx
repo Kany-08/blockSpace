@@ -24,7 +24,7 @@ const Input = ({placeholder, name, type, value, handleChange }) =>(
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, checkWallet, isLoading } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
@@ -50,7 +50,7 @@ const Welcome = () => {
                     {!currentAccount && (
                      <button
                         type='button'
-                        onClick={checkWallet}
+                        onClick={connectWallet}
                         className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
 
                     >

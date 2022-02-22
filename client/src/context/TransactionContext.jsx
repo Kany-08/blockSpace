@@ -8,6 +8,7 @@ export const TransactionContext = React.createContext();
 const { ethereum } = window;
 
 
+
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
@@ -44,7 +45,9 @@ export const TransactionProvider = ({ children }) => {
                 timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
                 message:transaction.message,
                 keyword: transaction.keyword,
+               
                 amount: parseInt(transaction.amount._hex) / (10 ** 18)
+                
             }))
 
             console.log(structuredTransactions)
@@ -176,7 +179,7 @@ export const TransactionProvider = ({ children }) => {
 
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount,setCurrentAccount,checkWallet, formData, setFormData, handleChange, sendTransaction, transactions, isLoading }}>
+        <TransactionContext.Provider value={{ connectWallet, currentAccount,setCurrentAccount, formData, setFormData, handleChange, sendTransaction, transactions, isLoading }}>
 
             { children }
         </TransactionContext.Provider>
