@@ -7,8 +7,10 @@ module.exports = {
   solidity: '0.8.0',
   networks: {
     rinkeby: {
-      url: 'https://eth-rinkeby.alchemyapi.io/v2/UXxSLyb33x4tPgRXWybvbx2ifrVI1q-5',
+
+      url: 'https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW',
       accounts: [`${process.env.PRIVATE_KEY}`]
+
     }
   }
 }

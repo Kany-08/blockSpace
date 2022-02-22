@@ -4,6 +4,8 @@ import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
 import { TransactionContext } from '../context/TransactionContext';
+import { Loader } from './';
+import { shortenAddress } from '../utils/shortenAddress';
  
 
 
@@ -22,7 +24,7 @@ const Input = ({placeholder, name, type, value, handleChange }) =>(
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, checkWallet } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
@@ -48,7 +50,7 @@ const Welcome = () => {
                     {!currentAccount && (
                      <button
                         type='button'
-                        onClick={checkWallet}
+                        onClick={connectWallet}
                         className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
 
                     >
@@ -92,7 +94,7 @@ const Welcome = () => {
                             </div>
                             <div>
                                 <p className='text-white font-light text-sm'>
-                                    Address
+                                    {shortenAddress(currentAccount)}
                                 </p>
                                 <p className='text-white font-semibold text-lg mt-1'>
                                     Ethereum
@@ -110,7 +112,7 @@ const Welcome = () => {
 
                         <div className='h-[1px] w-full bg-gray-400 my-2' />
 
-                        {false ? (
+                        {isLoading? (
                             <Loader />
                         ) : (
                             <button
