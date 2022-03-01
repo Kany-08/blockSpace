@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext, createContext } from 'react';
 import { ethers } from 'ethers';
 
 import { contractABI, contractAddress } from '../utils/constants';
 
-export const TransactionContext = React.createContext();
+export const TransactionContext = createContext();
 
 const { ethereum } = window;
 
-
+//export const Crypto = createContext()
 
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
@@ -110,21 +110,6 @@ export const TransactionProvider = ({ children }) => {
         }
     }
 
-    const checkWallet = async ()=>{
-        try{
-            const permissions = await ethereum.request({
-                method: 'wallet_requestPermissions',
-                params: [{
-                eth_accounts: {},
-                }]
-                }); 
-
-            setCurrentAccount(permissions[0])
-        } catch (error){
-            setCurrentAccount(null)
-        }
-
-    }
 
     const sendTransaction = async () => {
         try {
@@ -176,12 +161,31 @@ export const TransactionProvider = ({ children }) => {
 
     }, []);
 
+    const [currency, setCurrency] = useState("USD");
+    const [symbol, setSymbol] = useState("€");
 
+    useEffect(() => {
+        if (currency === "EURO") setSymbol("€");
+        else if (currency === "USD") setSymbol("$");
+    }, [currency]);
 
     return (
-        <TransactionContext.Provider value={{ connectWallet, currentAccount,setCurrentAccount, formData, setFormData, handleChange, sendTransaction, transactions, isLoading }}>
+        <TransactionContext.Provider value={{ 
+            connectWallet, 
+            currentAccount,
+            setCurrentAccount, 
+            formData, setFormData, 
+            handleChange, sendTransaction, 
+            transactions, isLoading, 
+            currency, symbol, setCurrency }}>
 
             { children }
         </TransactionContext.Provider>
     );
+}
+
+
+
+export const CryptoState = () => {
+   return useContext(TransactionContext)
 }

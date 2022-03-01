@@ -4,11 +4,14 @@ import './index.css'
 import App from './App'
 import { TransactionProvider } from './context/TransactionContext';
 
+
 ReactDOM.render(
-  <TransactionProvider>
+ 
     <React.StrictMode>
+      <TransactionProvider>
       <App />
-    </React.StrictMode>
-  </TransactionProvider>,
+   </TransactionProvider>
+    </React.StrictMode>,
+ 
   document.getElementById('root')
 )
