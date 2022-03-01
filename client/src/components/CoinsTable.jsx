@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CoinList } from '../config/api';
 import { CryptoState } from '../context/TransactionContext';
 import axios from 'axios';
-import { Container, createTheme, LinearProgress, makeStyles, Table, 
-    TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
+import { Container, createTheme, LinearProgress, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab'
 import { useNavigate } from 'react-router-dom';
 
