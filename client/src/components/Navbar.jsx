@@ -3,7 +3,7 @@ import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
-import logo from '../../images/logo.png';
+import logo from '../../images/download.png';
 
 const NavbarItem = ({title, classProps}) =>{
     return(
@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <nav className='w-full flex md:justify-center justify-between items-center p-4'>
             <div className='md:flex-[0.5] flex-initial justify-center items-center'>
-                <img src={logo} alt="logo" className='w-32 cursor-pointer' />
+                <img src={logo} alt="logo" className='w-32 cursor-pointer text-white' />
             </div>
             <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial'>
                 {["Token", "Transaction", "Tutorials"].map((item, index)=> (
@@ -32,6 +32,9 @@ const Navbar = () => {
                 </Link>
                 <Link to="/transact" className='bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]'>
                     Transaction
+                </Link>
+                <Link to="/create-token" className='bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]'>
+                    Create Polygon E20 Token
                 </Link>
             </ul>
             <div className='flex-relative'>

@@ -2,9 +2,16 @@ import React, {useState, useEffect } from 'react';
 import { CryptoState } from "../context/TransactionContext"
 import { HistoricalChart } from "../config/api";
 import { chartDays } from '../config/data';
-import { makeStyles, createTheme, ThemeProvider, CircularProgress } from '@material-ui/core';
+import { makeStyles, ThemeProvider, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
-import { Line } from "react-chartjs-2";
+import { Line } from 'react-chartjs-2';
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js';
+
+Chart.register(CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+  );
 
 
 const CoinInfo = ({ coin }) => {
@@ -17,25 +24,19 @@ const { currency } = CryptoState();
 const fetchHistoricData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
 
- 
+    //console.log(data)
     setHistoricData(data.prices);
 };
 
-console.log("data", historicData);
+
+//console.log("data", historicData);
 
 
 useEffect(() => {
     fetchHistoricData();
 }, [currency, days]);
 
-const darkTheme= createTheme({
-    palette: {
-        primary: {
-            main: "#fff",
-        },
-        type: "dark",
-    },
-});
+
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -58,7 +59,7 @@ const classes = useStyles();
 
 
   return (
-    <ThemeProvider theme={darkTheme}>
+   
     <div className={classes.container}>
         {/* chart */}
         {
@@ -70,7 +71,7 @@ const classes = useStyles();
                 />
         ): (
             <>
-               {/* <Line
+                <Line
                    data= {{
                        labels:historicData.map((coin) => {
                            let date = new Date(coin[0]);
@@ -85,16 +86,35 @@ const classes = useStyles();
                        datasets: [
                           { data: historicData.map((coin) => coin[1]),
                             label: `Price ( Past ${days} Days ) in ${currency}`,
-                            borderColor: "#EEBC1D",
+                            borderColor: "#EEBCFF",
                         },
                        ],
                    }}
-               /> */}
+                   options={{
+                       elements: {
+                            point: {
+                                radius: 1,
+                            },
+                       },
+                   }}
+               />
+                <div style={{
+                        display: "flex",
+                        marginTop: 20,
+                        justifyContent: "space-around",
+                        width: "100%",
+                        color: "white",
+                }}
+                >
+                    {chartDays.map((day) => (
+                        <button onClick={() => setDays(day.value)}>{day.label}</button>
+                    ))}
+                </div>
             </>
         )}
-        {/* buttons */}
+        
     </div>
-    </ThemeProvider>
+
   )
 }
 

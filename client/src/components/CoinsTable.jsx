@@ -72,10 +72,6 @@ export default function CoinsTable() {
     const classes = useStyles()
   
 
-   
-
-    console.log(coins);
-    console.log(handleSearch());
   return (
 
     <ThemeProvider theme={darkTheme}>
