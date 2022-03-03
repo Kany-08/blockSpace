@@ -6,8 +6,12 @@ const main = async () => {
   const transactions = await Transactions.deploy();
 
   await transactions.deployed();
+  
+  const Nft = await hre.ethers.getContractFactory("FiredGuys");
+  const nft = await Nft.deploy();
 
-  console.log("Transactions deployed to:", transactions.address);
+  await nft.deployed();
+  console.log("Nft deployed to:", nft.address);
 }
 
 
