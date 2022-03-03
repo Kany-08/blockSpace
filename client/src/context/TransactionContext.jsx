@@ -199,7 +199,7 @@ export const TransactionProvider = ({ children }) => {
             formData, setFormData, 
             handleChange, sendTransaction, 
             transactions, isLoading, 
-            currency, symbol, setCurrency }}>
+            currency, symbol, setCurrency,setSymbol }}>
 
             { children }
         </TransactionContext.Provider>
