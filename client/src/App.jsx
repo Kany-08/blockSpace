@@ -1,8 +1,9 @@
 import React from "react"
-import { Navbar, Welcome, Footer,Services, Transactions } from "./components"
+import { Navbar, Welcome, Footer,Services, Transactions} from "./components"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import CryptoTracker from "./Pages/CryptoTracker"
-import CoinPage from "./Pages/CoinPage"
+import CoinPage from "./Pages/CoinPage";
+import Nft from './Pages/NFt/NFT';
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>  
           <Route path='/' element={<CryptoTracker />} />
           <Route path='/coins/:id' element={<CoinPage />} />
+          <Route path='/nft' element={<Nft />} />
           <Route path='/transact' element={
           <div>
             <Welcome/>
