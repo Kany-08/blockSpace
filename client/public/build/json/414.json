@@ -1,0 +1,35 @@
+{
+  "name": "Your Collection #414",
+  "description": "Remember to replace this description",
+  "image": "ipfs://NewUriToReplace/414.png",
+  "dna": "687d42cad939337cc2eeba72a72b8068945e32cb",
+  "edition": 414,
+  "date": 1645024342485,
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "bg4"
+    },
+    {
+      "trait_type": "faces",
+      "value": "face5"
+    },
+    {
+      "trait_type": "Eyeball",
+      "value": "eyes2"
+    },
+    {
+      "trait_type": "glasses",
+      "value": "dummy"
+    },
+    {
+      "trait_type": "bear",
+      "value": "dummy2"
+    },
+    {
+      "trait_type": "hairs",
+      "value": "aht2"
+    }
+  ],
+  "compiler": "HashLips Art Engine"
+}
