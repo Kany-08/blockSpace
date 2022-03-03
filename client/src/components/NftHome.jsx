@@ -29,11 +29,13 @@ function Home() {
   };
 
   return (
-    <div className='flex flex-col md:p-12 py-12 px-4 text-white'>
-        <NftWalletBalance />
-        <h1 className='text-white text-3xl text-center my-2'>...Nft Collection</h1>
 
-        <div style={{display:'flex', flexDirection:'row'}} >        
+    <div style={{width:'1500px', margin:'0 auto'}} className='flex flex-col md:p-12 py-12 px-4 text-white'>
+        <NftWalletBalance />
+        <h1 className='text-white text-3xl text-center my-4'>Nft Collection</h1>
+
+        <div style={{display:'flex', flexDirection:'row',flexWrap:'wrap', justifyContent:'center'}} >        
+
         {Array(totalMinted + 1)
         .fill(0)
         .map((_, i) => (
@@ -81,7 +83,9 @@ function NFTImage({ tokenId, getCount }) {
     }
     return (
       <div >
-        <div className='p-5  sm:w-60 w-full flex flex-col justify-start items-center blue-glassmorphism'>
+
+        <div className='p-5  sm:w-60 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
+
           {/* <img className='p-10' src={isMinted ? imageURI : 'img/placeholder.png'}></img>   */}
           <img src={`public/build/images/${tokenId}.png`} />
           <h5>ID #{tokenId}</h5>
