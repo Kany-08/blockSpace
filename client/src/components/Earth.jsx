@@ -3,16 +3,16 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
-import EarthDayMap from "../assets/textures/8k_earth_daymap.jpg";
+import EarthNightMap from "../assets/textures/8k_earth_nightmap.jpg";
 import EarthNormalMap from "../assets/textures/8k_earth_normal_map.jpg";
 import EarthSpecularMap from "../assets/textures/8k_earth_specular_map.jpg";
-import EarthCloudsMap from "../assets/textures/8k_earth_clouds.jpg";
+import DigitalMap from "../assets/textures/digitalworld.jpg";
 import { TextureLoader } from "three";
 
 const Earth = (props) => {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
     TextureLoader,
-    [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap]
+    [EarthNightMap, EarthNormalMap, EarthSpecularMap, DigitalMap]
   );
   const earthRef = useRef();
   const cloudsRef = useRef();
@@ -26,18 +26,18 @@ const Earth = (props) => {
 
   return (
     <>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.6} />
       <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={0.8} />
       <Stars
-        radius={550}
+        radius={250}
         depth={10}
-        count={20000}
+        count={1000}
         factor={7}
         saturation={0}
         fade={true}
       />
       <mesh ref={cloudsRef} position={[0, 0, 3]}>
-        <sphereGeometry args={[1.005, 32, 32]} />
+        <sphereGeometry args={[1.005, 32, 16]} />
         <meshPhongMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -55,7 +55,7 @@ const Earth = (props) => {
           metalness={0.4}
           roughness={0.7}
         />
-          {/* <OrbitControls
+           {/* <OrbitControls
           enableZoom={true}
           enablePan={true}
           enableRotate={true}
