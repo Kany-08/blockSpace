@@ -2,7 +2,7 @@ import NftWalletBalance from './NftWalletBalance';
 import { useEffect, useState } from 'react';
 
 import { ethers } from 'ethers';
-import FiredGuys from '../../../smart_contract/artifacts/contracts/MyNFT.sol/FiredGuys.json';
+import FiredGuys from '../utils/nft.json';
 
 const contractAddress = '0xfF108F9145AA561e76008E7602Cf7B54Da0F2b29';
 
