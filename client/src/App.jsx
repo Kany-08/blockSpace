@@ -1,6 +1,6 @@
 
 import React from "react"
-import { Navbar, Welcome, Footer,Services, Transactions} from "./components"
+import { Navbar, Welcome, Footer,Services, Transactions, LandingPage} from "./components"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import CryptoTracker from "./Pages/CryptoTracker"
 import CoinPage from "./Pages/CoinPage";
@@ -12,7 +12,7 @@ const App = () => {
     <BrowserRouter>
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
-       <Navbar/
+       <Navbar/>
         <Routes>  
           <Route path="/" element={<LandingPage />} />
           <Route path="/crypto" element={<CryptoTracker />} />
@@ -27,7 +27,7 @@ const App = () => {
           />
           </Routes>
 
-          <Footer />
+          <Footer style={{height: 150}}/>
         </div>
       </div>
     </BrowserRouter>

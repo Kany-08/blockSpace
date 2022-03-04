@@ -13,8 +13,8 @@ const CanvasContainer = styled.div`
 const LandingPage = () => {
   return (
     
-       <CanvasContainer className="min-h-screen gradient-bg-welcome">
-              <Navbar style={{height: 150}}/>
+       <CanvasContainer className="gradient-bg-welcome">
+              {/* <Navbar style={{height: 150}}/> */}
               <Canvas style={{height: 433}}>
                 <Suspense fallback={null}>
                   
@@ -23,7 +23,7 @@ const LandingPage = () => {
                 </Suspense>
               </Canvas>
               {/* carousel component */}
-              <Footer style={{height: 150}}/>
+              {/* <Footer style={{height: 150}}/> */}
             </CanvasContainer>
     
    
