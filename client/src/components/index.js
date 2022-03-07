@@ -4,5 +4,4 @@ export { default as Footer } from "./Footer";
 export { default as Welcome } from "./Welcome";
 export { default as Transactions } from "./Transactions";
 export { default as Services } from "./Services";
-export { default as LandingPage } from "./LandingPage"
-export { default as Earth } from "./LandingPage";
+export { default as LandingPage } from "./LandingPage";
