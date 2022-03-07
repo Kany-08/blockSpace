@@ -6,7 +6,7 @@ import { SiDiscord } from "react-icons/si";
 import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 
 const Footer = () => (
-  <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "270px"}}>
+  <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
     <div className="w-fullflex sm:flex-row flex-col justify-between items-center my-4">
       {/* <div className="flex flex-[0.5] justify-center items-center">
         <Link to="/">
@@ -16,19 +16,19 @@ const Footer = () => (
       <div className="flex flex-1 justify-evenly items-end flex-wrap sm:mt-0 mt-5 w-full">
         
           <p className="text-white pt-9 mx-2 cursor-pointer">
-            <FaTwitter size={35} />
+            <FaTwitter size={20} />
           </p>
         
 
         
           <p className="text-white mx-2 cursor-pointer">
-            <FaTelegramPlane size={35} />
+            <FaTelegramPlane size={20} />
           </p>
         
 
         
           <p className="text-white mx-2 cursor-pointer">
-            <SiDiscord size={35} />
+            <SiDiscord size={20} />
           </p>
         
       </div>

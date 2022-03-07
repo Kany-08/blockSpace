@@ -1,10 +1,15 @@
 
-import React from "react"
-import { Navbar, Welcome, Footer,Services, Transactions, LandingPage} from "./components"
+import React, {  lazy, Suspense } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import CryptoTracker from "./Pages/CryptoTracker"
-import CoinPage from "./Pages/CoinPage";
-import Nft from './Pages/NFt/NFT';
+const CryptoTrackerComponent = lazy(() => import('./Pages/CryptoTracker'))
+const CoinPageComponent = lazy(() => import('./Pages/CoinPage'))
+const NftComponent = lazy(() => import('./Pages/NFt/NFT'))
+const NavbarComponent = lazy(() => import('./components/Navbar'))
+const WelcomeComponent = lazy(() => import('./components/Welcome'))
+const ServicesComponent = lazy(() => import('./components/Services'))
+const TransactionsComponent = lazy(() => import('./components/Transactions'))
+const LandingPageComponent = lazy(() => import('./components/LandingPage'))
+const FooterComponent = lazy(() => import('./components/Footer'))
 
 
 const App = () => {
@@ -12,22 +17,26 @@ const App = () => {
     <BrowserRouter>
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
-       <Navbar/>
+        <Suspense fallback={<h1>Loading ...</h1>}>
+
+        
+       <NavbarComponent/>
         <Routes>  
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/crypto" element={<CryptoTracker />} />
-          <Route path='/coins/:id' element={<CoinPage />} />
-          <Route path='/nft' element={<Nft />} />
+          <Route path="/" element={<LandingPageComponent />} />
+          <Route path="/crypto" element={<CryptoTrackerComponent />} />
+          <Route path='/coins/:id' element={<CoinPageComponent />} />
+          <Route path='/nft' element={<NftComponent />} />
           <Route path='/transact' element={
           <div>
-            <Welcome/>
-            <Services/>
-            <Transactions/>
+            <WelcomeComponent/>
+            <ServicesComponent/>
+            <TransactionsComponent/>
           </div>}
           />
           </Routes>
 
-          <Footer style={{height: 150}}/>
+          <FooterComponent style={{height: 150}}/>
+          </Suspense>
         </div>
       </div>
     </BrowserRouter>
