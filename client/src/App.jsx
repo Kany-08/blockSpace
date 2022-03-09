@@ -1,6 +1,6 @@
-
 import React, {  lazy, Suspense } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+
 const CryptoTrackerComponent = lazy(() => import('./Pages/CryptoTracker'))
 const CoinPageComponent = lazy(() => import('./Pages/CoinPage'))
 const NftComponent = lazy(() => import('./Pages/NFt/NFT'))
