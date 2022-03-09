@@ -8,7 +8,7 @@ module.exports = {
   networks: {
     rinkeby: {
 
-      url: 'https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW',
+      url: "https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW",
       accounts: [`${process.env.PRIVATE_KEY}`]
 
     }
