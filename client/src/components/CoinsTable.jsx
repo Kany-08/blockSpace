@@ -104,7 +104,7 @@ export default function CoinsTable() {
                                                 fontFamily: "Montserrat",
                                             }}
                                             key={head}
-                                            align={head === "Coin" ? "" : "right"}
+                                            align={head === "Coin" ? "inherit" : "right"}
                                         >
                                             {head}
                                         </TableCell>
@@ -182,7 +182,7 @@ export default function CoinsTable() {
                     justifyContent: "center",
                 }}
                 classes={{ ul: classes.pagination }}
-                count={(handleSearch()?.length/10).toFixed(0)} 
+                count={Number((handleSearch()?.length/10).toFixed(0))} 
                 onChange={(_, value) => {
                     setPage(value);
                     window.scroll(0, 450)

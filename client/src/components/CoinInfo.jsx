@@ -107,7 +107,7 @@ const classes = useStyles();
                 }}
                 >
                     {chartDays.map((day) => (
-                        <button onClick={() => setDays(day.value)}>{day.label}</button>
+                        <button key={day.label} onClick={() => setDays(day.value)}>{day.label}</button>
                     ))}
                 </div>
             </>
