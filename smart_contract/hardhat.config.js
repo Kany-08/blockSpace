@@ -4,11 +4,11 @@ dotenv.config()
 require('@nomiclabs/hardhat-waffle');
 console.log(process.env.PRIVATE_KEY)
 module.exports = {
-  solidity: '0.8.0',
+  solidity: '0.8.4',
   networks: {
     rinkeby: {
 
-      url: 'https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW',
+      url: "https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW",
       accounts: [`${process.env.PRIVATE_KEY}`]
 
     }

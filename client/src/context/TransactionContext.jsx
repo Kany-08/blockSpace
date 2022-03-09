@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, createContext } from 'react';
 import { ethers } from 'ethers';
 
-import { contractABI, contractAddress } from '../utils/constants';
+import { contractABI, contractAddress, nftAddress,nftAbi } from '../utils/constants';
 
 export const TransactionContext = createContext();
 
@@ -12,12 +12,17 @@ const { ethereum } = window;
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
+    console.log(provider)
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
   
-    return transactionContract;
+    const nftContract = new ethers.Contract(nftAddress, nftAbi, signer);
+
+    return {transactionContract, nftContract};
     
   
 }   
+
+
 
 
 
@@ -36,8 +41,11 @@ export const TransactionProvider = ({ children }) => {
     const getAllTransactions = async () => {
         try {
             if(!ethereum) return alert("Please install Metamask");
-            const transactionContract = getEthereumContract();
+            const {transactionContract, nftContract} = getEthereumContract();
             const availableTransactions = await transactionContract.getAllTransactions();
+            console.log(nftContract)
+            const nftAvailableTransactions = await nftContract.getAllTransactions();
+
 
             const structuredTransactions = availableTransactions.map((transaction) => ({
                 addressTo: transaction.receiver,
@@ -50,9 +58,21 @@ export const TransactionProvider = ({ children }) => {
                 
             }))
 
-            console.log(structuredTransactions)
+            const nftStructuredTransactions = nftAvailableTransactions.map((transaction) => ({
+                addressTo: transaction.receiver,
+                addressFrom: transaction.sender,
+                timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
+                message:transaction.message,
+                keyword: transaction.keyword,
+               
+                amount: parseInt(transaction.amount._hex) / (10 ** 18)
+                
+            }))
 
-            setTransactions(structuredTransactions)
+            console.log(structuredTransactions)
+            console.log(nftStructuredTransactions)
+
+            setTransactions([...structuredTransactions, ...nftStructuredTransactions])
         } catch (error) {
             console.log(error)
         }
@@ -83,10 +103,12 @@ export const TransactionProvider = ({ children }) => {
 
     const checkIfTransactionsExist = async () => {
         try {
-            const transactionContract = getEthereumContract();
+            const {transactionContract, nftContract} = getEthereumContract();
             const transactionCount = await transactionContract.getTransactionCount();
+            const nftCount = await nftContract.count();
 
             window.localStorage.setItem("transactionCount", transactionCount)
+            window.localStorage.setItem("nftCount", nftCount)
         } catch (error) {
             console.log(error);
 
@@ -177,7 +199,7 @@ export const TransactionProvider = ({ children }) => {
             formData, setFormData, 
             handleChange, sendTransaction, 
             transactions, isLoading, 
-            currency, symbol, setCurrency }}>
+            currency, symbol, setCurrency,setSymbol }}>
 
             { children }
         </TransactionContext.Provider>
