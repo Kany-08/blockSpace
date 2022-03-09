@@ -20,7 +20,7 @@ const ServiceCard = ({ color, title, icon, subtitle }) => (
 const Services = () => (
   <div className="flex w-full justify-center items-center gradient-bg-services">
     <div className="flex mf:flex-row flex-col items-center justify-between md:p-20 py-12 px-4">
-      <div className="flex-1 flex flex-col justify-start items-start">
+      {/* <div className="flex-1 flex flex-col justify-start items-start">
         <h1 className="text-white text-3xl sm:text-5xl py-2 text-gradient ">
           Services that we
           <br />
@@ -30,9 +30,9 @@ const Services = () => (
           The best choice for buying and selling your crypto assets, with the
           various super friendly services we offer
         </p>
-      </div>
+      </div> */}
 
-      <div className="flex-1 flex flex-col justify-start items-center">
+      {/* <div className="flex-1 flex flex-col justify-start items-center">
         <ServiceCard
           color="bg-[#2952E3]"
           title="Security gurantee"
@@ -51,7 +51,7 @@ const Services = () => (
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
           subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
         />
-      </div>
+      </div> */}
     </div>
   </div>
 );
