@@ -67,15 +67,15 @@ const Welcome = () => {
                     </div>
                     <img src={blockchain} alt="blockchain" />
                     {/* <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
-                        Explore the crypto world. By and sell cryptocurrencies easily on Krypto.
+                        Explore the crypto world. By and sell cryptocurrencies easily on Krypto.*/}
 
-                    </p>
+                    
                     
 
                     <Wallet />
 
 
-                    </p> */}
+                    
                     
 
                 

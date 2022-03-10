@@ -30,7 +30,7 @@ function Home() {
 
   return (
 
-    <div style={{width:'1500px', margin:'0 auto'}} className='flex flex-col md:p-12 py-12 px-4 text-white'>
+    <div style={{width:'100%', margin:'0 auto'}} className='flex flex-col md:p-12 py-12 px-4 text-white'>
         <NftWalletBalance />
         <h1 className='text-white text-3xl text-center my-4'>Nft Collection</h1>
 

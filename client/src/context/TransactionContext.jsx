@@ -104,6 +104,7 @@ export const TransactionProvider = ({ children }) => {
     const checkIfTransactionsExist = async () => {
         try {
             const {transactionContract, nftContract} = getEthereumContract();
+            console.log(transactionContract, nftContract)
             const transactionCount = await transactionContract.getTransactionCount();
             const nftCount = await nftContract.count();
 
@@ -138,7 +139,7 @@ export const TransactionProvider = ({ children }) => {
             if(!ethereum) return alert("Please install Metamask");
             
             const { addressTo, amount, keyword, message } = formData;
-            const transactionContract = getEthereumContract();
+            const {transactionContract} = getEthereumContract();
             const parsedAmount = ethers.utils.parseEther(amount);
 
             await ethereum.request({
