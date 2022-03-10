@@ -8,8 +8,8 @@ module.exports = {
   networks: {
     rinkeby: {
 
-      url: process.env.STAGING_ALCHEMY_KEY,
-      accounts: [`${process.env.PRIVATE_KEY}`]
+      accounts: [`${process.env.PRIVATE_KEY}`],
+      url: "https://eth-rinkeby.alchemyapi.io/v2/oGsdsYwN-uzJuD8gA5M7MfJ56neZAhoW"
 
     }
   }

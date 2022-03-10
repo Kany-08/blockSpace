@@ -7,7 +7,7 @@ import CoinInfo from '../components/CoinInfo';
 import { SingleCoin } from '../config/api';
 import { CryptoState } from '../context/TransactionContext';
 import ReactHtmlParser from 'react-html-parser';
-import './CoinPage.css';
+import { Anchor } from  './Anchor.style';
 import { numberWithCommas } from '../components/CoinsTable';
 
 const CoinPage = () => {
@@ -104,9 +104,11 @@ const CoinPage = () => {
          <Typography variant="h3" className={classes.heading}>
             {coin?.name}
          </Typography>
+         
          <Typography variant="subtitle1" className={classes.description}>
-            {ReactHtmlParser(html)}
+           <p>{ReactHtmlParser(html)}</p>
          </Typography>
+        
          <div className={classes.marketData}>
            <span style={{ display: "flex" }}>
              <Typography variant="h5" className={classes.heading}>
