@@ -1,6 +1,6 @@
 import NftWalletBalance from './NftWalletBalance';
 import { useEffect, useState } from 'react';
-
+import {randomQuotes} from "../utils/randomquotes"
 import { ethers } from 'ethers';
 import FiredGuys from '../utils/nft.json';
 
@@ -67,7 +67,7 @@ function NFTImage({ tokenId, getCount }) {
     const mintToken = async () => {
       const connection = contract.connect(signer);
       const addr = connection.address;
-      const result = await contract.payToMint(addr, metadataURI, "random unique nft", "nft",  {
+      const result = await contract.payToMint(addr, metadataURI, randomQuotes[Math.floor(Math.random()*randomQuotes.length)].text, "nft",  {
         value: ethers.utils.parseEther('0.05'),
       });
   
