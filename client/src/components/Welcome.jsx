@@ -6,6 +6,8 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { TransactionContext } from '../context/TransactionContext';
 import { Loader } from './';
 import { shortenAddress } from '../utils/shortenAddress';
+import Wallet from './Wallet';
+
  
 
 
@@ -47,19 +49,9 @@ const Welcome = () => {
                     <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
                         Explore the crypto world. By and sell cryptocurrencies easily on Krypto.
                     </p>
-                    {!currentAccount && (
-                     <button
-                        type='button'
-                        onClick={connectWallet}
-                        className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+                    
 
-                    >
-                        <p className='text-white text-base font-semibold'>{currentAccount? "disconnect" : "connect wallet"}</p> 
-                    </button> ) }
-
-                
-
-
+                    <Wallet />
 
                     <div className='grid sm:grid-cols-3 grid-cols-2 w-full mt-10'>
                         <div className={`rounded-tl-2xl ${commonStyles}`} >

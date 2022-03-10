@@ -12,7 +12,7 @@ const { ethereum } = window;
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
-    console.log(provider)
+   
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
   
     const nftContract = new ethers.Contract(nftAddress, nftAbi, signer);
@@ -43,9 +43,9 @@ export const TransactionProvider = ({ children }) => {
             if(!ethereum) return alert("Please install Metamask");
             const {transactionContract, nftContract} = getEthereumContract();
             const availableTransactions = await transactionContract.getAllTransactions();
-            console.log(nftContract)
+            // console.log(nftContract)
             const nftAvailableTransactions = await nftContract.getAllTransactions();
-
+            console.log(nftAvailableTransactions, availableTransactions )
 
             const structuredTransactions = availableTransactions.map((transaction) => ({
                 addressTo: transaction.receiver,
@@ -59,7 +59,7 @@ export const TransactionProvider = ({ children }) => {
             }))
 
             const nftStructuredTransactions = nftAvailableTransactions.map((transaction) => ({
-                addressTo: transaction.receiver,
+                addressTo: currentAccount,
                 addressFrom: transaction.sender,
                 timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
                 message:transaction.message,
@@ -181,7 +181,7 @@ export const TransactionProvider = ({ children }) => {
         setCurrentAccount(accounts[0]);
     })
 
-    }, []);
+    }, [currentAccount]);
 
     const [currency, setCurrency] = useState("USD");
     const [symbol, setSymbol] = useState("€");

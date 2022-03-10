@@ -5,4 +5,4 @@ export const contractABI = abi.abi;
 export const contractAddress = '0xEb508B8e4ec2c96D3e130b88d387cdA1E0CC0b4c';
 
 export const nftAbi = nftABI.abi;
-export const nftAddress = '0xfF108F9145AA561e76008E7602Cf7B54Da0F2b29';
+export const nftAddress = '0x0811Ff6Af9d6cdBEF3388c8ed18a42d20cbaE5A9';
