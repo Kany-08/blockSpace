@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import FiredGuys from '../utils/nft.json';
 
-const contractAddress = '0xfF108F9145AA561e76008E7602Cf7B54Da0F2b29';
+const contractAddress = '0x0811Ff6Af9d6cdBEF3388c8ed18a42d20cbaE5A9';
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -13,7 +13,7 @@ const signer = provider.getSigner();
 
 // get the smart contract
 const contract = new ethers.Contract(contractAddress, FiredGuys.abi, signer);
-console.log(provider, signer, contract);
+console.log(contract);
 
 function Home() {
 
@@ -67,7 +67,7 @@ function NFTImage({ tokenId, getCount }) {
     const mintToken = async () => {
       const connection = contract.connect(signer);
       const addr = connection.address;
-      const result = await contract.payToMint(addr, metadataURI, {
+      const result = await contract.payToMint(addr, metadataURI, "random unique nft", "nft",  {
         value: ethers.utils.parseEther('0.05'),
       });
   

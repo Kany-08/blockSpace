@@ -9,6 +9,16 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract FiredGuys is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
+    struct TransferStruct{
+        address sender;
+        uint amount;
+        string message;
+        uint256 timestamp;
+        string keyword;
+    }
+
+    TransferStruct[] transactions;
+
     Counters.Counter private _tokenIdCounter;
 
     mapping(string => uint8) existingURIs;
@@ -48,7 +58,9 @@ contract FiredGuys is ERC721, ERC721URIStorage, Ownable {
 
     function payToMint(
         address recipient,
-        string memory metadataURI
+        string memory metadataURI,
+        string memory message,
+        string memory keyword
     ) public payable returns (uint256) {
         require(existingURIs[metadataURI] != 1, 'NFT already minted!');
         require (msg.value >= 0.05 ether, 'Need to pay up!');
@@ -56,7 +68,8 @@ contract FiredGuys is ERC721, ERC721URIStorage, Ownable {
         uint256 newItemId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         existingURIs[metadataURI] = 1;
-
+        
+        transactions.push(TransferStruct(msg.sender, msg.value, message, block.timestamp, keyword));
         _mint(recipient, newItemId);
         _setTokenURI(newItemId, metadataURI);
 
@@ -65,7 +78,13 @@ contract FiredGuys is ERC721, ERC721URIStorage, Ownable {
 
     function count() public view returns (uint256) {
         return _tokenIdCounter.current();
+
     }
+
+     function getAllTransactions() public view returns (TransferStruct[] memory) {
+        return transactions;
+    }
+
 
 
 }
