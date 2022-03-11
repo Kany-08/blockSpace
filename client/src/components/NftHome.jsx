@@ -84,7 +84,7 @@ function NFTImage({ tokenId, getCount }) {
     return (
       <div >
 
-        <div className='p-5  sm:w-60 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
+        <div className='p-5  sm:w-44 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
 
           {/* <img className='p-10' src={isMinted ? imageURI : 'img/placeholder.png'}></img>   */}
           <img src={`public/build/images/${tokenId}.png`} />
