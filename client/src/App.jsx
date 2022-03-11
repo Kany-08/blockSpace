@@ -1,18 +1,46 @@
-import { Navbar, Welcome, Footer,Services, Transactions } from "./components"
+import React, {  lazy, Suspense } from "react"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+const CryptoTrackerComponent = lazy(() => import('./Pages/CryptoTracker'))
+const CoinPageComponent = lazy(() => import('./Pages/CoinPage'))
+const NftComponent = lazy(() => import('./Pages/NFt/NFT'))
+const NavbarComponent = lazy(() => import('./components/Navbar'))
+const WelcomeComponent = lazy(() => import('./components/Welcome'))
+const ServicesComponent = lazy(() => import('./components/Services'))
+const TransactionsComponent = lazy(() => import('./components/Transactions'))
+const LandingPageComponent = lazy(() => import('./components/LandingPage'))
+const FooterComponent = lazy(() => import('./components/Footer'))
+
 
 const App = () => {
-
   return (
+    <BrowserRouter>
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
-        <Navbar/>
-        <Welcome/>
-      </div>
-      <Services/>
-      <Transactions/>
-      <Footer/>
-    </div>
-  )
-}
+        <Suspense fallback={<h1>Loading ...</h1>}>
 
-export default App
+        
+       <NavbarComponent/>
+        <Routes>  
+          <Route path="/" element={<LandingPageComponent />} />
+          <Route path="/crypto" element={<CryptoTrackerComponent />} />
+          <Route path='/coins/:id' element={<CoinPageComponent />} />
+          <Route path='/nft' element={<NftComponent />} />
+          <Route path='/transact' element={
+          <div>
+            <WelcomeComponent/>
+            <ServicesComponent/>
+            <TransactionsComponent/>
+          </div>}
+          />
+          </Routes>
+
+          <FooterComponent style={{height: 150}}/>
+          </Suspense>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
+};
+
+export default App;
