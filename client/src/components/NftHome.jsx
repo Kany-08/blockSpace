@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import {randomQuotes} from "../utils/randomquotes"
 import { ethers } from 'ethers';
 import FiredGuys from '../utils/nft.json';
+import { YoutubeEmbed } from './Youtube';
+import { Transactions } from './Transactions';
+
 
 const contractAddress = '0x0811Ff6Af9d6cdBEF3388c8ed18a42d20cbaE5A9';
 
@@ -29,7 +32,7 @@ function Home() {
   };
 
   return (
-
+    <>
     <div style={{width:'100%', margin:'0 auto'}} className='flex flex-col md:p-12 py-12 px-4 text-white'>
         <NftWalletBalance />
         <h1 className='text-white text-3xl text-center my-4'>Nft Collection</h1>
@@ -43,8 +46,13 @@ function Home() {
             <NFTImage key={i} tokenId={i} getCount={getCount} />
             
         ))}
+        </div>
     </div>
+    <Transactions/>
+     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+        <YoutubeEmbed embedId="meTpMP0J5E8" />
     </div>
+    </>
   );
 }
 
@@ -82,6 +90,7 @@ function NFTImage({ tokenId, getCount }) {
       alert(uri);
     }
     return (
+     
       <div >
 
         <div className='p-5  sm:w-60 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
@@ -98,8 +107,10 @@ function NFTImage({ tokenId, getCount }) {
               Taken! Show URI
             </button>
           )}
-       </div>
+        </div>
+        
       </div>
+     
     );
   }
   

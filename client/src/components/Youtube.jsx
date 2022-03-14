@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export const YoutubeEmbed = ({ embedId }) => (
+  <div className="mr-150px">
     <div className="video-responsive">
       <iframe
         width="640"
@@ -11,6 +12,7 @@ export const YoutubeEmbed = ({ embedId }) => (
         allowFullScreen
         title="Embedded youtube"
       />
+    </div>
     </div>
   );
   

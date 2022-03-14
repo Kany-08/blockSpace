@@ -1,24 +1,78 @@
 import React from 'react';
-import { H1 , H2, H3, P, Img, A } from '../components/Content.style';
+//import { H1 , H2, H3, P, Img, A } from '../components/Token.style';
 import { YoutubeEmbed } from '../components/Youtube';
+import styled from 'styled-components';
+
+const TokenContainer = styled.div`
+  width: 80%;
+  height: 100%;
+  margin: 10px auto;
+  display: flex;
+  justify-items: center;
+`;
+
+const H1 = styled.h1 `
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+        font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 500;
+        line-height: 1.2;
+        font-size: 2.5rem;
+       ` 
+ const H2 = styled.h2 `
+       margin-top: .5rem;
+       margin-bottom: 1rem;
+       font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+       font-weight: 500;
+       line-height: 1.2;
+       font-size: 2rem;
+      ` 
+ const H3 = styled.h3 `
+      margin-top: .5rem;
+      margin-bottom: 1rem;
+      font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-weight: 500;
+      line-height: 1.2;
+      font-size: 1.75rem;
+     ` 
+ const P = styled.p `
+      margin-top: 0;
+      margin-bottom: .9rem; 
+      ` 
+
+ const Img = styled.img `
+        border-style: none;
+        height: auto;
+        max-width: 100%;
+` 
+ const A = styled.a `
+        background-color: transparent;
+        text-decoration: none;
+        color: #CC3366;
+`
+
 
 
 const CreateTokenPage = () => {
   return (
+    <TokenContainer >
     <div className='text-white'>
-        <H1 id="how-to-create-a-polygon-token">How to Create a Polygon Token</H1>
+        <H1 id="how-to-create-a-polygon-token" >How to Create a Polygon Token</H1>
         <P><strong>Launching a token on Polygon Network, previously known as Matic Network, is so easy that it doesn’t even require any previous programming experience – as long as you use Moralis. Plus, if you’re familiar with programming on Ethereum, the process is almost exactly the same! Also, with the use of Moralis Speedy Nodes, the time it takes to launch a token on Polygon Network itself is drastically reduced. In this article, we’ll take you through the entire process from beginning to end, explaining how to create a token on Polygon Network with Moralis. Furthermore, we’ll show you the tried-and-tested standard for how to create a Polygon token with Moralis. You’ll be shocked how easy it is to create an ERC-20 Polygon token when you use Moralis!</strong></P>
         <P>By following our comprehensive guide to how to create a Polygon token on Polygon, you can cut your deployment time down from weeks to minutes by using Moralis and Moralis Speedy Nodes! If you’d rather get a video walkthrough for how to create a token on Polygon in five easy steps, you’ll find our Moralis YouTube video covering the process here:</P>
-        <YoutubeEmbed embedId="l_cUaIVtgEc" />
-        <P>Moralis is the premier blockchain middleware solution, that allows you to focus on frontend development. Specifically, Web3 development suffers from a lack of capable tools and backend infrastructure. Moralis solves this, by providing massively powerful backend infrastructure as a service, serverless computing, and much more. For example, Moralis is full of capable features, like the <A href="https://moralis.io/introducing-the-moralis-price-api/?utm_source=blog&amp;utm_medium=post&amp;utm_campaign=How%2520to%2520Create%2520a%2520Polygon%2520Token">Moralis Price API</A>, <A href="https://moralis.io/announcing-the-moralis-nft-api/?utm_source=blog&amp;utm_medium=post&amp;utm_campaign=How%2520to%2520Create%2520a%2520Polygon%2520Token">Moralis NFT API</A> that allows you to <A href="https://moralis.io/how-to-build-decentralized-apps-dapps-quickly-and-easily/?utm_source=blog&amp;utm_medium=post&amp;utm_campaign=How%2520to%2520Create%2520a%2520Polygon%2520Token">build dApps</A> in a matter of hours rather than months!</P>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' , marginBottom: '2rem'}}>
+        <YoutubeEmbed embedId="l_cUaIVtgEc"  />
+        </div>
+        <P>Moralis is the premier blockchain middleware solution, that allows you to focus on frontend development. Specifically, Web3 development suffers from a lack of capable tools and backend infrastructure. Moralis solves this, by providing massively powerful backend infrastructure as a service, serverless computing, and much more.</P>
         <H1 id="introduction-to-how-to-create-a-polygon-token">Introduction to How to Create a Polygon Token</H1>
         <P>Thanks to the open-source and decentralized nature of blockchain technology, anyone can create a cryptocurrency token. Moreover, it can be really simple and easy – you don’t even need to be a developer (although it will be super easy if you already have some programming skills). But, how to create a Polygon token on Polygon Network with Moralis, and why?</P>
-        <P><Img src="https://moralis.io/wp-content/uploads/2021/06/Blog-Moralis-Logo.png" alt=""/></P>
         <P>Firstly, Polygon is a layer-2 network on Ethereum. Ethereum is the largest smart contract-enabled platform and is host to the vast majority of decentralized finance (DeFi) applications. Furthermore, as the second-largest blockchain in existence, the Ethereum Network is one of the most secure and robust in the world. Moreover, Polygon, previously known as Matic Network, as one of the main layer-2 networks on Ethereum, is designed as a scaling solution, increasing throughput and lowering transaction fees. The project has seen immense adoption from some of the top DeFi platforms. Thus, Polygon is a reputable and reliable network to launch a token with. When you work with Moralis, it couldn’t be easier as for how to create a Polygon token.</P>
         <H3 id="ethereum-virtual-machine-evm-">Ethereum Virtual Machine (EVM)</H3>
         <P>Polygon Network (previously known as Matic Network) is an Ethereum Virtual Machine (EVM)-based system. EVM-based systems are essentially using the same base code as the Ethereum Network with some minor adjustments when creating a new network.</P>
         <P>If you’re familiar with programming on Ethereum, then the exact same development tools and processes apply if you want to create a Polygon token on Polygon Network (Matic Network). The only difference is the network on which the smart contracts are deployed.</P>
-        <P><Img src="https://moralis.io/wp-content/uploads/2021/07/21_07_What_is_EVM-1024x631.png" alt=""/></P>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' , marginBottom: '2rem' }}>
+        <P><Img src="https://moralis.io/wp-content/uploads/2021/07/21_07_What_is_EVM-1024x631.png" alt="" width="640" height="360"/></P>
+        </div>
         <P>As Polygon is an EVM-based system, you can create a Polygon token using Ethereum-based development tools that you would use to build on other EVM-based systems. This includes using the <A href="https://moralis.io/solidity-explained-what-is-solidity/?utm_source=blog&amp;utm_medium=post&amp;utm_campaign=How%2520to%2520Create%2520a%2520Polygon%2520Token">Solidity programming language</A> and the Remix environment for deploying the token.</P>
         <P>Also, the process for how to create a Polygon token requires using the same ERC-20 token standard as used on the Ethereum chain. This is the most widely-used token standard across the cryptocurrency industry. In short, the ERC-20 standard is like a template or recipe a developer must follow to ensure their token is compliant with Ethereum-based wallets and exchanges. Using the ERC-20 token standard is arguably the easiest way to launch your own cryptocurrency token.</P>
         <H2 id="before-you-get-started-with-how-to-create-a-polygon-token">Before You Get Started with How to Create a Polygon Token</H2>
@@ -62,6 +116,7 @@ const CreateTokenPage = () => {
         <P><Img src="https://moralis.io/wp-content/uploads/2021/07/Skarmavbild-2021-07-26-kl.-08.54.15-585x1024.png" alt=""/></P>
         <P>To see your tokens in your MetaMask wallet, copy the token wallet address then click on MetaMask. Scroll down to “Add Token”, then paste your new token address into the prompted “Token Contract Address” field. It should automatically fill in the token ticker and decimal places, so then you just need to click “Next” and you can see all your newly minted tokens in your MetaMask wallet!</P>
     </div>
+    </TokenContainer>
   )
 }
 
