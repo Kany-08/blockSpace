@@ -107,7 +107,8 @@ const TopSection = () => {
       Hello this is our Final Project about Web3.0 and blockchain Technologies.
       We want to get Web 2.0 Developers join the Future!
       </Paragraph>
-      <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton>
+      {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton>
+      <Wallet onClick={connectWallet}>Connect Wallet</Wallet> */}
       <MadeBy>
         <u>Made By:</u> Hengameh Bolourie, Kanyshai Sharapova , Pascal Malangeri
       </MadeBy>

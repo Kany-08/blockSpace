@@ -47,8 +47,6 @@ const Welcome = () => {
 
 
 
-
-
     return (
         <div className='flex w-full justify-center items-center'>
             
@@ -61,17 +59,12 @@ const Welcome = () => {
                     <h1 className='text-3xl sm:text-5xl text-white text-gradient py-1'>
                         What is Blockchain?
                     </h1>
-                    <div>
-                        <YoutubeEmbed embedId="SSo_EIwHSd4" />
-                    </div>
+                    
                     <img src={blockchain} alt="blockchain" />
                     {/* <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
                         Explore the crypto world. By and sell cryptocurrencies easily on Krypto.*/}
 
                     
-                    
-
-                    <Wallet />
 
                     {/* <div className='grid sm:grid-cols-3 grid-cols-2 w-full mt-10'>
                        
