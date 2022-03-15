@@ -6,7 +6,7 @@ const useFetch = ({ keyword }) => {
     const [gifUrl, setGifUrl] = useState("");
     const q = keyword.split(" ").join("")
     q.replace(/test/i,'cool')
-    console.log(q)
+    //console.log(q)
 
     const fetchGifs = async () => {
         try {
