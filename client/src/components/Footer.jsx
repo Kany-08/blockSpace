@@ -18,8 +18,8 @@ const size = {
 
 const MadeBy = styled.h3`
   color: #fff;
-  position: fixed;
-  bottom: 200px;
+  position: relative;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   @media only screen and ${device.lg}{

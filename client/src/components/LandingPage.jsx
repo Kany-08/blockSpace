@@ -8,7 +8,7 @@ import TopSection from "./TopSection";
 
 const CanvasContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 53.6vh;
 `;
 
 const LandingPage = () => {
@@ -16,9 +16,7 @@ const LandingPage = () => {
     
        <CanvasContainer className="gradient-bg-welcome">
               <TopSection />
-              <Canvas style={{
-              height: "56.5vh"
-              }}>
+              <Canvas >
                 <Suspense fallback={null}>
                   
                   <Earth /> 
