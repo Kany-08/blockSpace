@@ -10,6 +10,7 @@ const TokenComponent = lazy(() => import('./Pages/CreateTokenPage'))
 const WelcomeComponent = lazy(() => import('./components/Welcome'))
 const ServicesComponent = lazy(() => import('./components/Services'))
 const TransactionsComponent = lazy(() => import('./components/Transactions'))
+const NftTransactionsComponent = lazy(() => import('./components/NftTransactions'))
 const LandingPageComponent = lazy(() => import('./components/LandingPage'))
 const FooterComponent = lazy(() => import('./components/Footer'))
 
@@ -27,8 +28,16 @@ const App = () => {
           <Route path="/" element={<LandingPageComponent />} />
           <Route path="/crypto" element={<CryptoTrackerComponent />} />
           <Route path='/coins/:id' element={<CoinPageComponent />} />
-          <Route path='/nft' element={<NftComponent />} />
+
           <Route path='/token' element={<TokenComponent />} />
+
+          <Route path='/nft' element={
+          <div>
+            <NftComponent />
+            <NftTransactionsComponent />
+          </div>
+          } />
+
           <Route path='/transact' element={
           <div>
             <ServicesComponent/>

@@ -5,8 +5,12 @@ const API_KEY = import.meta.env.VITE_GIPHY_API;
 const useFetch = ({ keyword }) => {
     const [gifUrl, setGifUrl] = useState("");
     const q = keyword.split(" ").join("")
+
     q.replace(/test/i,'cool').toLowerCase()
-    console.log(q)
+
+   
+    //console.log(q)
+
 
     const fetchGifs = async () => {
         try {
