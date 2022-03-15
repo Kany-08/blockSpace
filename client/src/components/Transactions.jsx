@@ -17,10 +17,10 @@ const gifUrl = useFetch({keyword})
             <div className='flex flex-col items-center w-full mt-3'>
                 <div className='w-full mb-6 p-2'>
                     <a href={`https://rinkeby.etherscan.io/address/${addressFrom}`} target='_blank' rel='noreferrer' >
-                        <p className='text-white text-base'>From: {addressFrom}</p>
+                        <p className='text-white text-base'>From: {shortenAddress(addressFrom)}</p>
                     </a>
                     <a href={`https://rinkeby.etherscan.io/address/${addressTo}`} target='_blank' rel='noreferrer' >
-                        <p className='text-white text-base'>To: {addressTo}</p>
+                        <p className='text-white text-base'>To: {shortenAddress(addressFrom)}</p>
                     </a>
                     <p className='text-white text-base'>Amount: {amount} ETH </p>
                     {message && (
