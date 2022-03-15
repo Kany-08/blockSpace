@@ -134,8 +134,10 @@ const Welcome = () => {
                         )}
 
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+                    <div style={{ marginTop: '6rem'}}>
+                        {/* <div style={{ display: 'flex', justifyContent: 'center'}}> */}
                         <YoutubeEmbed embedId="iJBpiBqEMtA" />
+                        {/* </div> */}
                     </div>
                 </div>
                   

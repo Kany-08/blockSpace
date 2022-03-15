@@ -49,9 +49,9 @@ function Home() {
         </div>
     </div>
     <Transactions/>
-     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+     {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
         <YoutubeEmbed embedId="meTpMP0J5E8" />
-    </div>
+    </div> */}
     </>
   );
 }

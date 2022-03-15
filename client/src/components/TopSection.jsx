@@ -1,6 +1,7 @@
 import React, { useContext} from "react";
 import styled from "styled-components";
 import { TransactionContext } from '../context/TransactionContext';
+import Wallet from "./Wallet";
 
 const size = {
   xs: `320px`,
@@ -107,10 +108,10 @@ const TopSection = () => {
       Hello this is our Final Project about Web3.0 and blockchain Technologies.
       We want to get Web 2.0 Developers join the Future!
       </Paragraph>
-      {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton>
-      <Wallet onClick={connectWallet}>Connect Wallet</Wallet> */}
+      {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton> */}
+      <Wallet onClick={connectWallet}>Connect Wallet</Wallet>
       <MadeBy>
-        <u>Made By:</u> Hengameh Bolourie, Kanyshai Sharapova , Pascal Malangeri
+        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
       </MadeBy>
     </TopSectionContainer>
   );

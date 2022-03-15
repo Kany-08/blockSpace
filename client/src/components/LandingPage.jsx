@@ -26,9 +26,9 @@ const LandingPage = () => {
                   
                 </Suspense>
               </Canvas>
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+              {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
                   <YoutubeEmbed embedId="SSo_EIwHSd4" />
-              </div>
+              </div> */}
         </CanvasContainer>
         
     
