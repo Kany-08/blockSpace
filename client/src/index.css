@@ -21,20 +21,8 @@ body {
     radial-gradient(at 100% 0%, hsla(295,45%,62%) 0, transparent 50%);
 }
 
-/* .video-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-} */
 
-/* .video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-} */
+
 
 .gradient-bg-services {
   background-color:#0f0e13;

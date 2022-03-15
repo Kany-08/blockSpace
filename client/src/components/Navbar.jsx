@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 
 const NavbarItem = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>;
+  return <Link to={`/${title.toLowerCase()}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
 };
 
 const Navbar = () => {
@@ -66,7 +66,7 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Tracker", "Token", "Transaction", "NFT"].map(
+            {["Crypto", "Token", "Transact", "NFT"].map(
               (item, index) => (
                 <NavbarItem
                   key={item + index}
