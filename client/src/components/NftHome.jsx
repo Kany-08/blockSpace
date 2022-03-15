@@ -13,7 +13,7 @@ const signer = provider.getSigner();
 
 // get the smart contract
 const contract = new ethers.Contract(contractAddress, FiredGuys.abi, signer);
-console.log(contract);
+//console.log(contract);
 
 function Home() {
 
@@ -24,7 +24,7 @@ function Home() {
 
   const getCount = async () => {
     const count = await contract.count();
-    console.log(parseInt(count));
+    //console.log(parseInt(count));
     setTotalMinted(parseInt(count));
   };
 
@@ -60,7 +60,7 @@ function NFTImage({ tokenId, getCount }) {
   
     const getMintedStatus = async () => {
       const result = await contract.isContentOwned(metadataURI);
-      console.log(result)
+      //console.log(result)
       setIsMinted(result);
     };
   
@@ -78,7 +78,7 @@ function NFTImage({ tokenId, getCount }) {
   
     async function getURI() {
       const uri = await contract.tokenURI(tokenId);
-      console.log(uri)
+      //console.log(uri)
       alert(uri);
     }
     return (
