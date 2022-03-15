@@ -85,17 +85,6 @@ const ConnectButton = styled.button`
 }
 `;
 
-const MadeBy = styled.h3`
-  color: #fff;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  @media only screen and ${device.lg}{
-    display: none;
-}
-`;
-
 
 const TopSection = () => {
     const { connectWallet } = useContext(TransactionContext);
@@ -110,9 +99,7 @@ const TopSection = () => {
       </Paragraph>
       {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton> */}
       <Wallet onClick={connectWallet}>Connect Wallet</Wallet>
-      <MadeBy>
-        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
-      </MadeBy>
+      
     </TopSectionContainer>
   );
 }

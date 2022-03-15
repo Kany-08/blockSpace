@@ -2,11 +2,38 @@ import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
+import styled from "styled-components";
+
+const size = {
+  xs: `320px`,
+  sm: `768px`,
+  lg: `1050px`,
+ }
+
+ const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`
+ }
+
+const MadeBy = styled.h3`
+  color: #fff;
+  position: fixed;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  @media only screen and ${device.lg}{
+    display: none;
+}
+`;
+
 
 const Footer = () => (
   <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
     <div className="w-fullflex sm:flex-row flex-col justify-between items-center my-4">
-      
+    <MadeBy>
+        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
+      </MadeBy>
       <div className="flex flex-1 justify-evenly items-end flex-wrap sm:mt-0 mt-5 w-full">
         
           <p className="text-white pt-9 mx-2 cursor-pointer">
