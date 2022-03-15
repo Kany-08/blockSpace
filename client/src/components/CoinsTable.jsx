@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Container, createTheme, LinearProgress, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab'
 import { useNavigate } from 'react-router-dom';
+import { YoutubeEmbed } from './Youtube';
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -188,6 +189,9 @@ export default function CoinsTable() {
                     window.scroll(0, 450)
                 }}
             />
+             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+                        <YoutubeEmbed embedId="cIiR4GRz47I" />
+            </div>
         </Container>
     </ThemeProvider>
   )

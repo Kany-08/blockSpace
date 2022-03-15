@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import TopSection from "./TopSection";
+import { YoutubeEmbed } from './Youtube';
+
 
 const CanvasContainer = styled.div`
   width: 100%;
@@ -20,11 +22,15 @@ const LandingPage = () => {
               }}>
                 <Suspense fallback={null}>
                   
-                  <Earth />
+                  <Earth /> 
                   
                 </Suspense>
               </Canvas>
-            </CanvasContainer>
+              {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
+                  <YoutubeEmbed embedId="SSo_EIwHSd4" />
+              </div> */}
+        </CanvasContainer>
+        
     
    
     

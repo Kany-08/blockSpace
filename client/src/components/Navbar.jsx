@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 
 const NavbarItem = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>;
+  return <Link to={`/${title.toLowerCase()}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
 };
 
 const Navbar = () => {
@@ -21,14 +21,14 @@ const Navbar = () => {
         </Link>
       </div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {/* {["Token", "Transaction", "Tutorials"].map((item, index) => (
+        {/* {["Tracker", "Token", "Transaction", "NFT"].map((item, index) => (
           <NavbarItem key={item + index} title={item} />
         ))} */}
         <Link
           to="/crypto"
           className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
         >
-          Crypto Tracker
+          Tracker
         </Link>
         <Link
           to="/transact"
@@ -36,9 +36,15 @@ const Navbar = () => {
         >
           Transaction
         </Link>
+        <Link
+          to="/token"
+          className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
+        >
+          Token
+        </Link>
         <Link to="/nft" className='bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]'>
-                    NFT
-                </Link>
+          NFT
+        </Link>
       </ul>
       <div className="flex-relative">
         {toggleMenu ? (
@@ -60,7 +66,7 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Crypto Tokens", "Transactions", "Tutorials"].map(
+            {["Crypto", "Token", "Transact", "NFT"].map(
               (item, index) => (
                 <NavbarItem
                   key={item + index}
