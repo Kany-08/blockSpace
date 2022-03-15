@@ -1,18 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaTwitter } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
-import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 
 const Footer = () => (
   <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
     <div className="w-fullflex sm:flex-row flex-col justify-between items-center my-4">
-      {/* <div className="flex flex-[0.5] justify-center items-center">
-        <Link to="/">
-          <img src={logo} alt="logo" className="w-24 cursor-pointer" />
-        </Link>
-      </div> */}
+      
       <div className="flex flex-1 justify-evenly items-end flex-wrap sm:mt-0 mt-5 w-full">
         
           <p className="text-white pt-9 mx-2 cursor-pointer">

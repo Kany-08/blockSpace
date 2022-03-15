@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import {randomQuotes} from "../utils/randomquotes"
 import { ethers } from 'ethers';
 import FiredGuys from '../utils/nft.json';
-import { YoutubeEmbed } from './Youtube';
-import { Transactions } from './Transactions';
 
 
 const contractAddress = '0x0811Ff6Af9d6cdBEF3388c8ed18a42d20cbaE5A9';
@@ -48,10 +46,6 @@ function Home() {
         ))}
         </div>
     </div>
-    <Transactions/>
-     {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '6rem'}}>
-        <YoutubeEmbed embedId="meTpMP0J5E8" />
-    </div> */}
     </>
   );
 }
@@ -59,7 +53,6 @@ function Home() {
 function NFTImage({ tokenId, getCount }) {
     const contentId = 'QmReCsNbeX8eAcFDt4cfpTuH7rPv56RkStFGo3RSPBbSrv';
     const metadataURI = `${contentId}/${tokenId}.json`;
-    const imageURI = `https://gateway.pinata.cloud/ipfs/${contentId}/${tokenId}.png`;
   
     const [isMinted, setIsMinted] = useState(false);
     useEffect(() => {
@@ -95,7 +88,6 @@ function NFTImage({ tokenId, getCount }) {
 
         <div className='p-5  sm:w-44 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
 
-          {/* <img className='p-10' src={isMinted ? imageURI : 'img/placeholder.png'}></img>   */}
           <img src={`public/build/images/${tokenId}.png`} />
           <h5>ID #{tokenId}</h5>
           {!isMinted ? (
