@@ -34,7 +34,7 @@ export const TransactionProvider = ({ children }) => {
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
     const [transactions, setTransactions] = useState([])
     const [nfttransactions, setNftTransactions] = useState([])
-    const [msgbutton, setMsgbutton] = useState('Install Metamask')
+    const [msgbutton, setMsgbutton] = useState('Connect Wallet')
 
     const handleChange = (e, name) => {
         setFormData((prevState) => ({...prevState, [name]: e.target.value}));
@@ -85,7 +85,7 @@ export const TransactionProvider = ({ children }) => {
 
         try {
             if(!ethereum) {
-                setMsgbutton('install Metamask')
+                setMsgbutton('connected')
             } 
             else {
             
