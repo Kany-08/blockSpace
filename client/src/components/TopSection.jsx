@@ -87,7 +87,7 @@ const ConnectButton = styled.button`
 
 
 const TopSection = () => {
-    const { connectWallet } = useContext(TransactionContext);
+    const { connectWallet, msgbutton} = useContext(TransactionContext);
 
   return (
     <TopSectionContainer>
@@ -97,9 +97,23 @@ const TopSection = () => {
       Hello this is our Final Project about Web3.0 and blockchain Technologies.
       We want to get Web 2.0 Developers join the Future!
       </Paragraph>
-      {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton> */}
-      <Wallet onClick={connectWallet}>Connect Wallet</Wallet>
-      
+
+      <ConnectButton onClick={connectWallet}>{msgbutton}</ConnectButton>
+      {/* <Wallet onClick={connectWallet}>{msgbutton}</Wallet> */}
+      <ConnectButton
+        
+          onClick={()=>{navigate('/story')}  
+  }
+          // className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+        > Learn more
+          {/* <p className="text-white text-base font-semibold">
+            Learn more
+          </p> */}
+        </ConnectButton>
+      <MadeBy>
+        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
+      </MadeBy>
+
     </TopSectionContainer>
   );
 }
