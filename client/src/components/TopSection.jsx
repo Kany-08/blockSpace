@@ -85,17 +85,6 @@ const ConnectButton = styled.button`
 }
 `;
 
-const MadeBy = styled.h3`
-  color: #fff;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  @media only screen and ${device.lg}{
-    display: none;
-}
-`;
-
 
 const TopSection = () => {
     const { connectWallet, msgbutton} = useContext(TransactionContext);
@@ -108,6 +97,7 @@ const TopSection = () => {
       Hello this is our Final Project about Web3.0 and blockchain Technologies.
       We want to get Web 2.0 Developers join the Future!
       </Paragraph>
+
       <ConnectButton onClick={connectWallet}>{msgbutton}</ConnectButton>
       {/* <Wallet onClick={connectWallet}>{msgbutton}</Wallet> */}
       <ConnectButton
@@ -120,9 +110,10 @@ const TopSection = () => {
             Learn more
           </p> */}
         </ConnectButton>
-      <MadeBy>
-        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
-      </MadeBy>
+      
+      {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton> */}
+      <Wallet onClick={connectWallet}>Connect Wallet</Wallet>
+
     </TopSectionContainer>
   );
 }

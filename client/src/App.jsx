@@ -18,8 +18,9 @@ const StoryComponent = lazy(() => import('./components/Story'))
 const App = () => {
   return (
     <BrowserRouter>
+    {/*  "*/}
     <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
+      <div className="gradient-bg-welcome" >
         <Suspense fallback={<h1>Loading ...</h1>}>
 
         
