@@ -98,7 +98,7 @@ const MadeBy = styled.h3`
 
 
 const TopSection = () => {
-    const { connectWallet } = useContext(TransactionContext);
+    const { connectWallet, msgbutton} = useContext(TransactionContext);
 
   return (
     <TopSectionContainer>
@@ -109,7 +109,7 @@ const TopSection = () => {
       We want to get Web 2.0 Developers join the Future!
       </Paragraph>
       {/* <ConnectButton onClick={connectWallet}>Connect Wallet</ConnectButton> */}
-      <Wallet onClick={connectWallet}>Connect Wallet</Wallet>
+      <Wallet onClick={connectWallet}>{msgbutton}</Wallet>
       <MadeBy>
         <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
       </MadeBy>

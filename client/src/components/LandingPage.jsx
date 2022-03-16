@@ -17,7 +17,7 @@ const LandingPage = () => {
        <CanvasContainer className="gradient-bg-welcome">
               <TopSection />
               <Canvas style={{
-              height: "56.5vh"
+              height: "62vh"
               }}>
                 <Suspense fallback={null}>
                   

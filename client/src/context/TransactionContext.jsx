@@ -34,6 +34,7 @@ export const TransactionProvider = ({ children }) => {
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
     const [transactions, setTransactions] = useState([])
     const [nfttransactions, setNftTransactions] = useState([])
+    const [msgbutton, setMsgbutton] = useState('Install Metamask')
 
     const handleChange = (e, name) => {
         setFormData((prevState) => ({...prevState, [name]: e.target.value}));
@@ -83,18 +84,28 @@ export const TransactionProvider = ({ children }) => {
     const checkIfWalletIsConnected = async () => {
 
         try {
-            if(!ethereum) return alert("Please install Metamask");
-
+            if(!ethereum) {
+                setMsgbutton('install Metamask')
+            } 
+            else {
+            
             const accounts = await ethereum.request({ method: 'eth_accounts'});
-            //console.log(accounts[0]);
-    
+            
             if(accounts.length) {
                 setCurrentAccount(accounts[0]);
-    
+                setMsgbutton('Disconnected')
                 getAllTransactions();
             } else {
             console.log('No accounts found');
             }
+        }
+            //if(!ethereum) return alert("Please install Metamask");
+
+            
+            //console.log(accounts[0]);
+        
+    
+            
             
         } catch (error) {
           console.log(error);
@@ -122,13 +133,13 @@ export const TransactionProvider = ({ children }) => {
 
     const connectWallet = async () => {
         try {
-          if(!ethereum) return alert("Please install Metamask");
-
+ 
           const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 
           setCurrentAccount(accounts[0]);
-
-        } catch (error) {
+          setMsgbutton('Disconnect');
+          }
+        catch (error) {
           console.log(error);
 
           throw new Error("No ethereum object.")
@@ -177,12 +188,17 @@ export const TransactionProvider = ({ children }) => {
     }
     useEffect(()=>{
         checkIfWalletIsConnected();
-        checkIfTransactionsExist();
-        window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+        
+        if (ethereum) {
+            checkIfTransactionsExist();
+            window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+
         const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 
         setCurrentAccount(accounts[0]);
-    })
+       
+        
+    }) }
 
     }, [currentAccount]);
 
@@ -196,7 +212,7 @@ export const TransactionProvider = ({ children }) => {
 
     return (
         <TransactionContext.Provider value={{ 
-            connectWallet, 
+            connectWallet, msgbutton, setMsgbutton,
             currentAccount,
             setCurrentAccount, 
             formData, setFormData, 

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 
 const NavbarItem = ({ title, classProps }) => {
-  return <Link to={`/${title.toLowerCase()}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
+  return <Link to={`/${title}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
 };
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
           to="/crypto"
           className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
         >
-          Tracker
+          Crypto
         </Link>
         <Link
           to="/transact"
