@@ -24,6 +24,7 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
+    "styled-component": "^2.8.0",
     "styled-components": "^5.3.3",
     "three": "^0.138.2"
   },

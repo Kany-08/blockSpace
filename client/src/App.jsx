@@ -18,8 +18,9 @@ const FooterComponent = lazy(() => import('./components/Footer'))
 const App = () => {
   return (
     <BrowserRouter>
+    {/*  "*/}
     <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
+      <div className="gradient-bg-welcome" >
         <Suspense fallback={<h1>Loading ...</h1>}>
 
         
