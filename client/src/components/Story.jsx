@@ -23,6 +23,7 @@ const Story = () => {
   return (
     <StoryContainer>
     <div className='text-white' >
+
         <div style={{marginTop: '5rem' , marginBottom: '5rem'}}>
             <H1>What is a Blockchain?</H1>
             <p>Blockchain is a type of shared database that differs from a typical database in the way that it stores information; blockchains store data in blocks that are then linked together via cryptography.<p/> <br />
@@ -87,6 +88,7 @@ const Story = () => {
             <p>MetaMask will then present you with your 12-word backup phrase. You’ll need to write this down in the same order displayed on your screen. This will be needed to recover your wallet should you ever lose access to your computer, and should be kept stored somewhere safe. Anybody who has access to your 12-word back phrase will be able to recover your funds, so keep it private.</p> <br />
             <p>Confirm your backup phrase on the next screen by entering the words in the same order saved previously.</p> <br />
                 <YoutubeEmbed embedId="GNPz-Dv5BjM"  />
+
         </div>
       
     </div>

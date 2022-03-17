@@ -15,9 +15,11 @@ const Navbar = () => {
 
    //md:flex-[0.5] flex-initial justify-center items-center
   return (
+
     <nav className="nav">
       <div className="nav-box">
       <div className="logo" >
+
         <Link to="/">
           <img src={logo} alt="logo" style={{maxWidth: "70px"}} className="cursor-pointer" />
         </Link>

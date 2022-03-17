@@ -5,35 +5,38 @@ import { SiDiscord } from "react-icons/si";
 import styled from "styled-components";
 
 const size = {
-  xs: `320px`,
-  sm: `768px`,
-  lg: `1050px`,
+  sm: `425px`
  }
 
  const device = {
-  xs: `(max-width: ${size.xs})`,
-  sm: `(max-width: ${size.sm})`,
-  lg: `(max-width: ${size.lg})`
+  sm: `(max-width: ${size.sm})`
  }
 
 const MadeBy = styled.h3`
   color: #fff;
   position: relative;
-  bottom: 10px;
+  margin-top: 2.45em;
+  text-align: center;
   left: 50%;
   transform: translateX(-50%);
-  @media only screen and ${device.lg}{
+  @media only screen and ${device.sm}{
     display: none;
 }
 `;
+const icons = styled.div`{
+  display: flex;
+
+}`;
 
 
 const Footer = () => (
-  <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
-    <div className="w-fullflex sm:flex-row flex-col justify-between items-center my-4">
+  <div className="w-full md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
     <MadeBy>
-        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova , Pascal Malangeri
+        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova, Pascal Malangeri
       </MadeBy>
+    <div className="w-full flex sm:flex-row flex-col justify-between items-center my-4">
+    
+      
       <div className="flex flex-1 justify-evenly items-end flex-wrap sm:mt-0 mt-5 w-full">
         
           <p className="text-white pt-9 mx-2 cursor-pointer">
