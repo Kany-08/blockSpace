@@ -32,7 +32,7 @@ const Services = () => (
           <br />
           for ethereum network
         </h1>
-        <Wallet />
+        {/* <Wallet /> */}
       </div>
         
       <div className="flex-1 flex flex-col justify-start items-center">

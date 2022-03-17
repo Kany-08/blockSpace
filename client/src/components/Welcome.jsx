@@ -1,23 +1,8 @@
 import React, {useContext } from 'react';
-import { AiFillPlayCircle } from 'react-icons/ai';
-import { SiEthereum } from 'react-icons/si';
-import { BsInfoCircle } from 'react-icons/bs';
-
-import blockchain from '../../images/TransactionsBlockchainV2.png'
-
 import { TransactionContext } from '../context/TransactionContext';
 import { Loader } from './';
-import { shortenAddress } from '../utils/shortenAddress';
-
-import Wallet from './Wallet';
 
 import { YoutubeEmbed } from './Youtube';
-
- 
-
-  
-
-const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white"
 
 const Input = ({placeholder, name, type, value, handleChange }) =>(
     <input
@@ -32,7 +17,7 @@ const Input = ({placeholder, name, type, value, handleChange }) =>(
 
 const Welcome = () => {
 
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
+    const { formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
