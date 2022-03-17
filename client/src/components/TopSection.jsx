@@ -141,9 +141,11 @@ const ButtonDiv = styled.div`
 `;
 
 const TopSection = () => {
+
   const { connectWallet, msgbutton, currentAccount } =
     useContext(TransactionContext);
   const navigate = useNavigate();
+
 
   return (
     <TopSectionContainer>
@@ -153,7 +155,6 @@ const TopSection = () => {
         Hello this is our Final Project about Web3.0 and blockchain
         Technologies. We want to get Web 2.0 Developers join the Future!
       </Paragraph>
-
       <ButtonDiv>
         {!currentAccount && (
           <ConnectButton onClick={connectWallet}>{msgbutton}</ConnectButton>
@@ -174,6 +175,7 @@ const TopSection = () => {
           </p> */}
         </LearnMore>
       </ButtonDiv>
+
     </TopSectionContainer>
   );
 };

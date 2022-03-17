@@ -8,7 +8,7 @@ import TopSection from "./TopSection";
 
 const CanvasContainer = styled.div`
   width: 100%;
-  height: 53.6vh;
+  height: 62vh;
 `;
 
 const LandingPage = () => {
