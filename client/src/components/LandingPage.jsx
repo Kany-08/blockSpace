@@ -16,7 +16,9 @@ const LandingPage = () => {
     
        <CanvasContainer className="gradient-bg-welcome">
               <TopSection />
+
               <Canvas >
+
                 <Suspense fallback={null}>
                   
                   <Earth /> 

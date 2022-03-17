@@ -7,7 +7,7 @@ import logo from "../../images/krinnxb23kgp75s0jyhp.png";
 import '../index.css';
 
 const NavbarItem = ({ title, classProps }) => {
-  return <Link to={`/${title.toLowerCase()}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
+  return <Link to={`/${title}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
 };
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
           to="/crypto"
           className="a"
         >
-          Tracker
+          Crypto
         </Link>
         <Link
           to="/transact"

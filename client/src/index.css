@@ -168,3 +168,7 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @media only screen and (max-width: 1024) {
+  .app {height: 100vh} 
+}  */
