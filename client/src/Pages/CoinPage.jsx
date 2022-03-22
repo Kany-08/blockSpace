@@ -7,7 +7,7 @@ import CoinInfo from '../components/CoinInfo';
 import { SingleCoin } from '../config/api';
 import { CryptoState } from '../context/TransactionContext';
 import ReactHtmlParser from 'react-html-parser';
-import { Anchor } from  './Anchor.style';
+
 import { numberWithCommas } from '../components/CoinsTable';
 
 const CoinPage = () => {
