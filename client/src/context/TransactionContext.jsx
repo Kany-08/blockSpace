@@ -33,6 +33,8 @@ export const TransactionProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
     const [transactions, setTransactions] = useState([])
+    const [nfttransactions, setNftTransactions] = useState([])
+    const [msgbutton, setMsgbutton] = useState('Connect Wallet')
 
     const handleChange = (e, name) => {
         setFormData((prevState) => ({...prevState, [name]: e.target.value}));
@@ -45,7 +47,7 @@ export const TransactionProvider = ({ children }) => {
             const availableTransactions = await transactionContract.getAllTransactions();
             // console.log(nftContract)
             const nftAvailableTransactions = await nftContract.getAllTransactions();
-            console.log(nftAvailableTransactions, availableTransactions )
+            //console.log(nftAvailableTransactions, availableTransactions )
 
             const structuredTransactions = availableTransactions.map((transaction) => ({
                 addressTo: transaction.receiver,
@@ -67,12 +69,13 @@ export const TransactionProvider = ({ children }) => {
                
                 amount: parseInt(transaction.amount._hex) / (10 ** 18)
                 
-            }))
+            }));
 
-            console.log(structuredTransactions)
-            console.log(nftStructuredTransactions)
+            //console.log(structuredTransactions)
+            //console.log(nftStructuredTransactions)
 
-            setTransactions([...structuredTransactions, ...nftStructuredTransactions])
+            setTransactions(structuredTransactions.reverse())
+            setNftTransactions(nftStructuredTransactions)
         } catch (error) {
             console.log(error)
         }
@@ -81,18 +84,28 @@ export const TransactionProvider = ({ children }) => {
     const checkIfWalletIsConnected = async () => {
 
         try {
-            if(!ethereum) return alert("Please install Metamask");
-
+            if(!ethereum) {
+                setMsgbutton('connected')
+            } 
+            else {
+            
             const accounts = await ethereum.request({ method: 'eth_accounts'});
-            console.log(accounts[0]);
-    
+            
             if(accounts.length) {
                 setCurrentAccount(accounts[0]);
-    
+                setMsgbutton('Disconnected')
                 getAllTransactions();
             } else {
             console.log('No accounts found');
             }
+        }
+            //if(!ethereum) return alert("Please install Metamask");
+
+            
+            //console.log(accounts[0]);
+        
+    
+            
             
         } catch (error) {
           console.log(error);
@@ -104,7 +117,7 @@ export const TransactionProvider = ({ children }) => {
     const checkIfTransactionsExist = async () => {
         try {
             const {transactionContract, nftContract} = getEthereumContract();
-            console.log(transactionContract, nftContract)
+            //console.log(transactionContract, nftContract)
             const transactionCount = await transactionContract.getTransactionCount();
             const nftCount = await nftContract.count();
 
@@ -120,13 +133,17 @@ export const TransactionProvider = ({ children }) => {
 
     const connectWallet = async () => {
         try {
+
           if(!ethereum) return alert("Please install Metamask");
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          console.log(provider);
 
           const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 
           setCurrentAccount(accounts[0]);
-
-        } catch (error) {
+          setMsgbutton('Disconnect');
+          }
+        catch (error) {
           console.log(error);
 
           throw new Error("No ethereum object.")
@@ -164,7 +181,18 @@ export const TransactionProvider = ({ children }) => {
 
             setTransactionCount(transactionCount.toNumber());
 
-            window.reload()
+            let trans = await transactionContract.getAllTransactions()
+            const structuredTransactions = trans.map((transaction) => ({
+                addressTo: transaction.receiver,
+                addressFrom: transaction.sender,
+                timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
+                message:transaction.message,
+                keyword: transaction.keyword,
+               
+                amount: parseInt(transaction.amount._hex) / (10 ** 18)
+                
+            }))
+            setTransactions(structuredTransactions.reverse())
 
         } catch (error) {
             console.log(error);
@@ -175,12 +203,17 @@ export const TransactionProvider = ({ children }) => {
     }
     useEffect(()=>{
         checkIfWalletIsConnected();
-        checkIfTransactionsExist();
-        window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+        
+        if (ethereum) {
+            checkIfTransactionsExist();
+            window.ethereum.on("accountsChanged", async (e)=>{console.log("Account changed");
+
         const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 
         setCurrentAccount(accounts[0]);
-    })
+       
+        
+    }) }
 
     }, [currentAccount]);
 
@@ -194,12 +227,12 @@ export const TransactionProvider = ({ children }) => {
 
     return (
         <TransactionContext.Provider value={{ 
-            connectWallet, 
+            connectWallet, msgbutton, setMsgbutton,
             currentAccount,
             setCurrentAccount, 
             formData, setFormData, 
             handleChange, sendTransaction, 
-            transactions, isLoading, 
+            transactions, nfttransactions, isLoading, 
             currency, symbol, setCurrency,setSymbol }}>
 
             { children }

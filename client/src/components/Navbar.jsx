@@ -4,43 +4,54 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import logo from "../../images/krinnxb23kgp75s0jyhp.png";
+import '../index.css';
 
 const NavbarItem = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>;
+  return <Link to={`/${title}`}><li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>;
 };
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-
+   //md:flex-[0.5] flex-initial justify-center items-center
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
+
+    <nav className="nav">
+      <div className="nav-box">
+      <div className="logo" >
+
         <Link to="/">
-          <img src={logo} alt="logo" className="w-24 cursor-pointer" />
+          <img src={logo} alt="logo" style={{maxWidth: "70px"}} className="cursor-pointer" />
         </Link>
       </div>
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {/* {["Token", "Transaction", "Tutorials"].map((item, index) => (
-          <NavbarItem key={item + index} title={item} />
-        ))} */}
+
+      <ul className="container">
+        
         <Link
           to="/crypto"
-          className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
+          className="a"
         >
-          Crypto Tracker
+          Crypto
         </Link>
         <Link
           to="/transact"
-          className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
+          className="a"
         >
           Transaction
         </Link>
-        <Link to="/nft" className='bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]'>
-                    NFT
-                </Link>
+        <Link
+          to="/token"
+          className="a"
+        >
+          Token
+        </Link>
+        <Link to="/nft" className='a'>
+          NFT
+        </Link>
       </ul>
-      <div className="flex-relative">
+      </div>
+      {/*  */}
+      <div className="flex-relative my-auto">
         {toggleMenu ? (
           <AiOutlineClose
             fontSize={28}
@@ -49,8 +60,9 @@ const Navbar = () => {
           />
         ) : (
           <HiMenuAlt4
-            fontSize={15}
+            fontSize={25}
             className="text-white md:hidden cursor-pointer"
+            
             onClick={() => setToggleMenu(true)}
           />
         )}
@@ -60,7 +72,7 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Crypto Tokens", "Transactions", "Tutorials"].map(
+            {["Crypto", "Token", "Transact", "NFT"].map(
               (item, index) => (
                 <NavbarItem
                   key={item + index}
@@ -72,6 +84,7 @@ const Navbar = () => {
           </ul>
         )}
       </div>
+      
     </nav>
   );
 };

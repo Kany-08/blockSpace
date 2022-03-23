@@ -5,9 +5,10 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import TopSection from "./TopSection";
 
+
 const CanvasContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 64vh;
 `;
 
 const LandingPage = () => {
@@ -15,16 +16,17 @@ const LandingPage = () => {
     
        <CanvasContainer className="gradient-bg-welcome">
               <TopSection />
-              <Canvas style={{
-              height: 473
-              }}>
+
+              <Canvas >
+
                 <Suspense fallback={null}>
                   
-                  <Earth />
+                  <Earth /> 
                   
                 </Suspense>
               </Canvas>
-            </CanvasContainer>
+        </CanvasContainer>
+        
     
    
     

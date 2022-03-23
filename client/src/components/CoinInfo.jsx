@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { CryptoState } from "../context/TransactionContext"
 import { HistoricalChart } from "../config/api";
 import { chartDays } from '../config/data';
-import { makeStyles, ThemeProvider, CircularProgress } from '@material-ui/core';
+import { makeStyles, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js';
@@ -61,7 +61,6 @@ const classes = useStyles();
   return (
    
     <div className={classes.container}>
-        {/* chart */}
         {
             !historicData ? (
                 <CircularProgress

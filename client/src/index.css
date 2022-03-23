@@ -21,6 +21,9 @@ body {
     radial-gradient(at 100% 0%, hsla(295,45%,62%) 0, transparent 50%);
 }
 
+
+
+
 .gradient-bg-services {
   background-color:#0f0e13;
   background-image: 
@@ -79,6 +82,93 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* Navbar  */
+
+.nav {
+  /* width: 100%; */
+  /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  text-align: center;
+ 
+}
+
+.nav-box {
+  display: flex;
+  flex: row;
+  width: 60%;
+  align-items: center;
+}
+
+.container {
+  margin-top: 12px;
+  /* margin-left: 5rem; */
+}
+
+.container .a {
+  overflow: hidden;
+  /* background-color: black; */
+  /* text-align: center */
+}
+
+.container .a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  /* text-transform: uppercase; */
+}
+
+.container .a::after {
+  content:'';
+  width:0%;
+  height:5px;
+  display:block;
+  background-color: rgb(61,137,245);
+  /* margin-bottom:1px; */
+  margin-top: 2px;
+}
+
+.container .a:hover::after {
+  width:100%;
+  transition:all .5s;
+}
+
+
+
+
+@media only screen and (max-width: 768px){
+	.container {
+    visibility: hidden;
+  }
+
+  .nav {
+    justify-content: space-between;
+    padding: 5px 20px;
+  }
+}
+
+@media only screen and (min-width: 765px) and (max-width:1300px) {
+	.container {
+    display: flex;
+    flex-direction: row;
+  }
+
+ 
+}
+
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @media only screen and (max-width: 1024) {
+  .app {height: 100vh} 
+}  */

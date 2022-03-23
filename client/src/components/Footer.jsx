@@ -1,21 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaTwitter } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
-import logo from "../../images/krinnxb23kgp75s0jyhp.png";
+import styled from "styled-components";
+
+const size = {
+  sm: `425px`
+ }
+
+ const device = {
+  sm: `(max-width: ${size.sm})`
+ }
+
+const MadeBy = styled.h3`
+  color: #fff;
+  position: relative;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  @media only screen and ${device.sm}{
+    display: none;
+}
+`;
+
 
 const Footer = () => (
-  <div className="w-full flex md:justify-center justify-between items-center flex-col p-4" style={{height: "100%"}}>
-    <div className="w-fullflex sm:flex-row flex-col justify-between items-center my-4">
-      {/* <div className="flex flex-[0.5] justify-center items-center">
-        <Link to="/">
-          <img src={logo} alt="logo" className="w-24 cursor-pointer" />
-        </Link>
-      </div> */}
-      <div className="flex flex-1 justify-evenly items-end flex-wrap sm:mt-0 mt-5 w-full">
+  <div className="w-full md:justify-center justify-between items-center flex-col p-12">
+    <MadeBy>
+        <u>Made By:</u> Hengameh Bolouri, Kanyshai Sharapova, Pascal Malangeri
+      </MadeBy>
+    <div className="w-full flex sm:flex-row flex-col justify-between items-center">
+    
+      
+      <div className="flex flex-1 justify-center items-center flex-wrap w-full sm:pt-5 pb-4">
         
-          <p className="text-white pt-9 mx-2 cursor-pointer">
+          <p className="text-white mx-2 cursor-pointer">
             <FaTwitter size={20} />
           </p>
         
@@ -43,9 +62,9 @@ const Footer = () => (
       </p>
     </div>
 
-    <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 " />
+    <div className="sm:w-[100%] w-full h-[0.25px] bg-gray-400 mt-5 " />
 
-    <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
+    <div className="sm:w-[100%] w-full flex justify-between items-center mt-3">
       <p className="text-white text-left text-xs">@blockSpace2022</p>
       <p className="text-white text-right text-xs">All rights reserved</p>
     </div>
