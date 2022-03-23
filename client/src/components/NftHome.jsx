@@ -88,7 +88,7 @@ function NFTImage({ tokenId, getCount }) {
 
         <div className='p-5  sm:w-44 w-full flex flex-col justify-start items-center blue-glassmorphism mb-5 mr-8'>
 
-          <img src={`public/build/images/${tokenId}.png`} />
+          <img src={`public/images/${tokenId}.png`} />
           <h5>ID #{tokenId}</h5>
           {!isMinted ? (
             <button className='text-white w-full mt-2  py-2 px-4 bg-[#3d4f7c] rounded cursor-pointer' onClick={mintToken}>
