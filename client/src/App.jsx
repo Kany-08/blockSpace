@@ -1,5 +1,5 @@
 import React, {  lazy, Suspense } from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { HashRouter, Route, Routes } from "react-router-dom"
 
 
 const CryptoTrackerComponent = lazy(() => import('./Pages/CryptoTracker'))
@@ -17,7 +17,7 @@ const StoryComponent = lazy(() => import('./components/Story'))
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
     {/*  "*/}
     <div className="min-h-screen">
       <div className="gradient-bg-welcome" >
@@ -55,7 +55,7 @@ const App = () => {
           </Suspense>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
