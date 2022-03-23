@@ -74,7 +74,7 @@ export const TransactionProvider = ({ children }) => {
             //console.log(structuredTransactions)
             //console.log(nftStructuredTransactions)
 
-            setTransactions(structuredTransactions)
+            setTransactions(structuredTransactions.reverse())
             setNftTransactions(nftStructuredTransactions)
         } catch (error) {
             console.log(error)
@@ -192,7 +192,7 @@ export const TransactionProvider = ({ children }) => {
                 amount: parseInt(transaction.amount._hex) / (10 ** 18)
                 
             }))
-            setTransactions(structuredTransactions)
+            setTransactions(structuredTransactions.reverse())
 
         } catch (error) {
             console.log(error);
