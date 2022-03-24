@@ -14,7 +14,7 @@ console.log('line4')
  console.log('line7')
  //import { CryptoState } from '../context/TransactionContext';
  console.log('line8')
- import ReactHtmlParser from 'react-html-parser';
+ //import ReactHtmlParser from 'react-html-parser';
 
 // import { numberWithCommas } from '../components/CoinsTable';
 // console.log('before function')
