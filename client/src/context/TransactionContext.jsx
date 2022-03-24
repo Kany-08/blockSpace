@@ -35,6 +35,8 @@ export const TransactionProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([])
     const [nfttransactions, setNftTransactions] = useState([])
     const [msgbutton, setMsgbutton] = useState('Connect Wallet')
+    const [currency, setCurrency] = useState("USD");
+    const [symbol, setSymbol] = useState("€");
 
     const handleChange = (e, name) => {
         setFormData((prevState) => ({...prevState, [name]: e.target.value}));
@@ -217,8 +219,7 @@ export const TransactionProvider = ({ children }) => {
 
     }, [currentAccount]);
 
-    const [currency, setCurrency] = useState("USD");
-    const [symbol, setSymbol] = useState("€");
+ 
 
     useEffect(() => {
         if (currency === "EURO") setSymbol("€");
