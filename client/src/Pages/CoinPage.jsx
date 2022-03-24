@@ -87,10 +87,10 @@ const CoinPage = () => {
   const classes = useStyles();
   const html= coin && coin.description.en.split(". ")[0];
   const price= coin && coin.market_data.current_price[currency.toLowerCase()]
-  const cap= coin && coin.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6)
+  const cap= coin && coin.market_data.market_cap[currency.toLowerCase()]/* .toString().slice(0, -6) */
   
   if (!coin) return <LinearProgress style={{ backgroundColor: "coral" }}/>;
-
+  console.log(price, cap)
 
 
   return (
@@ -132,7 +132,7 @@ const CoinPage = () => {
                   fontFamily: "Montserrat", color: "white"
                 }}>
                 {symbol}{" "}
-                {numberWithCommas(price)}
+                {/* {numberWithCommas(price)} */}
               </Typography>
            </span>
            <span style={{ display: "flex" }}>
@@ -146,7 +146,7 @@ const CoinPage = () => {
                   fontFamily: "Montserrat", color: "white"
                 }}>
                 {symbol}{" "}
-                {numberWithCommas(cap)}M
+                {/* {numberWithCommas(cap)} */}M
               </Typography>
            </span>
 

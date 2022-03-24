@@ -7,7 +7,7 @@ import { Pagination } from '@material-ui/lab'
 import { useNavigate } from 'react-router-dom';
 import { YoutubeEmbed } from './Youtube';
 
-export function numberWithCommas(x) {
+export function numberWithCommas(x = 0) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
