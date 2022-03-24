@@ -95,8 +95,11 @@ const CoinPage = () => {
   if (!coin) return <LinearProgress style={{ backgroundColor: "coral" }}/>;
  
   const Parser = (text) => {
+    
     let parseData = text.split("<")
-    let firstPart = parseData[0].slice(0, -1)
+    console.log(parseData);
+    if(parseData.length > 1 ){
+      let firstPart = parseData[0].slice(0, -1)
     let secondPart = parseData[1].split(">")[1]
     let thirdPart = parseData[2].replace("/a>","")
     //let secondFinalOutput = secondPart.replace("/a>","")
@@ -105,6 +108,9 @@ const CoinPage = () => {
     console.log(thirdPart)
 
     return ( `${firstPart}${secondPart}${thirdPart}`)
+    }
+    return text;
+    
   }
   //Parser(`fashion as <a href="https://www.coingecko.com/en/coins/ethereum">Ethereum</a> is the name for the platform that facilitates trades in Ether`)
 
