@@ -10,7 +10,7 @@ console.log('line4')
  //import { useParams } from 'react-router-dom'
  console.log('line6')
  //import CoinInfo from '../components/CoinInfo';
- import { SingleCoin } from '../config/api';
+ //import { SingleCoin } from '../config/api';
  console.log('line7')
  import { CryptoState } from '../context/TransactionContext';
  console.log('line8')
