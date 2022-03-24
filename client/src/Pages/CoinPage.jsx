@@ -7,17 +7,17 @@ import React, { useState, useEffect } from 'react'
 console.log('line4')
 
  console.log('line5')
- //import { useParams } from 'react-router-dom'
+ import { useParams } from 'react-router-dom'
  console.log('line6')
- //import CoinInfo from '../components/CoinInfo';
- //import { SingleCoin } from '../config/api';
+ import CoinInfo from '../components/CoinInfo';
+ import { SingleCoin } from '../config/api';
  console.log('line7')
- //import { CryptoState } from '../context/TransactionContext';
+ import { CryptoState } from '../context/TransactionContext';
  console.log('line8')
  //import ReactHtmlParser from 'react-html-parser';
 
-// import { numberWithCommas } from '../components/CoinsTable';
-// console.log('before function')
+import { numberWithCommas } from '../components/CoinsTable';
+console.log('before function')
 
 
 // const CoinPage = () => {
