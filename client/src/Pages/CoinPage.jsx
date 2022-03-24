@@ -12,7 +12,7 @@ console.log('line4')
  //import CoinInfo from '../components/CoinInfo';
  //import { SingleCoin } from '../config/api';
  console.log('line7')
- import { CryptoState } from '../context/TransactionContext';
+ //import { CryptoState } from '../context/TransactionContext';
  console.log('line8')
  import ReactHtmlParser from 'react-html-parser';
 
