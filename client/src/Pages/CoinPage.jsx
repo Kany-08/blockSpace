@@ -3,13 +3,15 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import CoinInfo from '../components/CoinInfo';
+//import CoinInfo from '../components/CoinInfo';
 import { SingleCoin } from '../config/api';
 import { CryptoState } from '../context/TransactionContext';
 import ReactHtmlParser from 'react-html-parser';
 
 import { numberWithCommas } from '../components/CoinsTable';
 console.log('before function')
+
+
 const CoinPage = () => {
 console.log('inside coinpage')
   const { id } = useParams();
@@ -155,7 +157,7 @@ console.log('inside coinpage')
       </div>
          {/* chart  */}
 
-      <CoinInfo coin={coin} />
+      {/* <CoinInfo coin={coin} /> */}
     </div>
   )
 }
