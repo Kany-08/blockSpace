@@ -6,7 +6,7 @@ const CryptoTrackerComponent = lazy(() => import('./Pages/CryptoTracker'))
 const CoinPageComponent = lazy(() => import('./Pages/CoinPage'))
 console.log(CoinPageComponent)
 const NftComponent = lazy(() => import('./Pages/NFt/NFT'))
-console.log(NftComponent)
+
 const NavbarComponent = lazy(() => import('./components/Navbar'))
 const TokenComponent = lazy(() => import('./Pages/CreateTokenPage'))
 const WelcomeComponent = lazy(() => import('./components/Welcome'))
