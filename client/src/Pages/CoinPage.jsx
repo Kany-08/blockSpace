@@ -104,7 +104,7 @@ const CoinPage = () => {
          </Typography>
          
          <Typography variant="subtitle1" className={classes.description}>
-           <p>{ReactHtmlParser(html)}</p>
+           {/* <p>{ReactHtmlParser(html)}</p> */}
          </Typography>
         
          <div className={classes.marketData}>
