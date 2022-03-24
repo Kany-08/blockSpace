@@ -27,7 +27,8 @@ const CoinPage = () => {
     fetchCoin();
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles((theme) => {console.log(theme)
+    return ({
     container: {
       display: "flex",
       // response styles
@@ -82,12 +83,12 @@ const CoinPage = () => {
       },
 
     },
-  }));
+  })})
 
   const classes = useStyles();
-  const html= coin && coin.description.en.split(". ")[0];
-  const price= coin && coin.market_data.current_price[currency.toLowerCase()]
-  const cap= coin && coin.market_data.market_cap[currency.toLowerCase()]/* .toString().slice(0, -6) */
+  const html= coin && coin.description?.en?.split(". ")[0];
+  const price= coin && coin.market_data?.current_price[currency.toLowerCase()]
+  const cap= coin && coin.market_data?.market_cap[currency.toLowerCase()]/* .toString().slice(0, -6) */
   
   if (!coin) return <LinearProgress style={{ backgroundColor: "coral" }}/>;
   console.log(price, cap)
@@ -104,7 +105,7 @@ const CoinPage = () => {
          </Typography>
          
          <Typography variant="subtitle1" className={classes.description}>
-           {/* <p>{ReactHtmlParser(html)}</p> */}
+           <p>{ReactHtmlParser(html)}</p>
          </Typography>
         
          <div className={classes.marketData}>
@@ -132,7 +133,7 @@ const CoinPage = () => {
                   fontFamily: "Montserrat", color: "white"
                 }}>
                 {symbol}{" "}
-                {/* {numberWithCommas(price)} */}
+                {numberWithCommas(price)}
               </Typography>
            </span>
            <span style={{ display: "flex" }}>
@@ -146,7 +147,7 @@ const CoinPage = () => {
                   fontFamily: "Montserrat", color: "white"
                 }}>
                 {symbol}{" "}
-                {/* {numberWithCommas(cap)} */}M
+                {numberWithCommas(cap)}M
               </Typography>
            </span>
 
