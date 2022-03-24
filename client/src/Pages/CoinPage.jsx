@@ -1,13 +1,13 @@
 console.log('line1')
 //import { LinearProgress, makeStyles, Typography } from '@material-ui/core';
 console.log('line2')
-import axios from 'axios';
+//import axios from 'axios';
 console.log('line3')
 import React, { useState, useEffect } from 'react'
 console.log('line4')
 
  console.log('line5')
- import { useParams } from 'react-router-dom'
+ //import { useParams } from 'react-router-dom'
  console.log('line6')
  //import CoinInfo from '../components/CoinInfo';
  import { SingleCoin } from '../config/api';
