@@ -23,8 +23,6 @@ const CoinPage = () => {
     setCoin(data);
   }
 
-  console.log(coin);
-
   useEffect(() => {
     fetchCoin();
   }, []);
@@ -87,9 +85,9 @@ const CoinPage = () => {
   }));
 
   const classes = useStyles();
-  const html= coin?.description.en.split(". ")[0];
-  const price= coin?.market_data.current_price[currency.toLowerCase()]
-  const cap= coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6)
+  const html= coin && coin.description.en.split(". ")[0];
+  const price= coin && coin.market_data.current_price[currency.toLowerCase()]
+  const cap= coin && coin.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6)
   
   if (!coin) return <LinearProgress style={{ backgroundColor: "coral" }}/>;
 
