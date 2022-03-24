@@ -171,7 +171,7 @@ console.log('line4')
 // }
 
 // export default CoinPage
-import React from 'react'
+
 
 export default function CoinPage() {
   return (
