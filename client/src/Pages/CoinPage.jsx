@@ -9,9 +9,9 @@ import { CryptoState } from '../context/TransactionContext';
 import ReactHtmlParser from 'react-html-parser';
 
 import { numberWithCommas } from '../components/CoinsTable';
-
+console.log('before function')
 const CoinPage = () => {
-  
+console.log('inside coinpage')
   const { id } = useParams();
   const [coin, setCoin] = useState();
  
